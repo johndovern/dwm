@@ -160,7 +160,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_q,		killclient,	{0} },
 	{ MODKEY|ShiftMask,		XK_q,		spawn,		SHCMD("sysact") },
-	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER --incognito") },
+	{ MODKEY,			XK_w,		spawn,		SHCMD("$BROWSER") },
 	{ MODKEY|ShiftMask,		XK_w,		spawn,		SHCMD(TERMINAL " -e sudo nmtui") },
 	{ MODKEY,			XK_e,		spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
 	{ MODKEY|ShiftMask,		XK_e,		spawn,		SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
@@ -259,7 +259,7 @@ static Key keys[] = {
 	/*					MY KEYS					*/
 	{ MEHKEY, XK_q,                 spawn,          SHCMD("url-copy") },
 	{ MEHKEY, XK_w,                 spawn,          SHCMD("yt-wsg") },
-	{ MEHKEY, XK_t,                 spawn,          SHCMD("bookmark-open") },
+	{ MEHKEY, XK_t,                 spawn,          SHCMD("theme-switcher") },
 	{ MEHKEY, XK_y,                 spawn,          SHCMD("mpv-clipboard") },
 	{ MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") },
 	{ MEHKEY, XK_p,                 spawn,          SHCMD("mpv $(xclip -o) --no-video") },
@@ -268,11 +268,13 @@ static Key keys[] = {
 	{ MEHKEY, XK_f,                 spawn,          SHCMD("flameshot gui") },
 	{ MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
 	{ MEHKEY, XK_h,                 spawn,          SHCMD("yt-playlist") },
+	{ MEHKEY, XK_j,                 spawn,          SHCMD("mousewiggle") },
 	{ MEHKEY, XK_k,                 spawn,          SHCMD("keepassxc") },
 	{ MEHKEY, XK_l,                 spawn,          SHCMD("qutebrowser") },
 	{ MEHKEY, XK_x,                 spawn,          SHCMD("xset r rate 300 50") },
 	{ MEHKEY, XK_v,                 spawn,          SHCMD("yt-dlp --config-location ~/.config/yt-dlp/yt-dlp-video.conf $(xclip -o)") },
 	{ MEHKEY, XK_b,                 spawn,          SHCMD("bookmark") },
+	{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
 /*
 	{ MEHKEY, XK_a,                 spawn,          SHCMD("") },
 */
