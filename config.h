@@ -55,6 +55,7 @@ static const Rule rules[] = {
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
 	{ "fate.exe",     NULL,       NULL,       	    1 << 2,       1,           0,         0,        -1 },
+	{ "Lutris",     NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
 };
 
 /* layout(s) */
