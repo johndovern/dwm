@@ -264,6 +264,7 @@ static Key keys[] = {
 	{ MEHKEY, XK_w,                 spawn,          SHCMD("yt-wsg") },
 	{ MEHKEY, XK_t,                 spawn,          SHCMD("theme-switcher") },
 	{ MEHKEY, XK_y,                 spawn,          SHCMD("mpv-clipboard") },
+	{ MEHKEY, XK_u,                 spawn,          SHCMD("transmission-gtk") },
 	{ MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") },
 	{ MEHKEY, XK_p,                 spawn,          SHCMD("mpv $(xclip -o) --no-video") },
 	{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
