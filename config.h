@@ -137,6 +137,7 @@ ResourcePref resources[] = {
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	/*				ROW 1				*/
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
 	/* { MODKEY|ShiftMask,		XK_Escape,	spawn,	SHCMD("") }, */
@@ -160,6 +161,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("sysact") },
 	{ MODKEY|ShiftMask,		XK_BackSpace,	spawn,		SHCMD("sysact") },
 
+	/*				ROW 2				*/
 	{ MODKEY,			XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_q,		killclient,	{0} },
@@ -189,6 +191,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_backslash,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_backslash,		spawn,		SHCMD("") }, */
 
+	/*				ROW 3				*/
 	{ MODKEY,			XK_a,		togglegaps,	{0} },
 	{ MODKEY|ShiftMask,		XK_a,		defaultgaps,	{0} },
 	{ MODKEY,			XK_s,		togglesticky,	{0} },
@@ -209,6 +212,7 @@ static Key keys[] = {
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return,	togglescratch,	{.ui = 0} },
 
+	/*				ROW 4				*/
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
@@ -260,30 +264,101 @@ static Key keys[] = {
 	{ MODKEY,			XK_Delete,	spawn,		SHCMD("dmenurecord kill") },
 	{ MODKEY,			XK_Scroll_Lock,	spawn,		SHCMD("killall screenkey || screenkey &") },
 
-	/*					MY KEYS					*/
-	{ MEHKEY, XK_q,                 spawn,          SHCMD("url-copy") },
-	{ MEHKEY, XK_w,                 spawn,          SHCMD("yt-wsg") },
+	/*				MY KEYS					*/
+
+	/*				ROW 1					*/
+	/*{ MEHKEY, XK_1,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_1,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_2,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_2,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_3,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_3,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_4,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_4,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_5,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_5,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_6,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_6,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_7,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_7,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_8,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_8,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_9,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_9,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_0,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_0,          spawn,          SHCMD("") },*/
+
+	/*				ROW 2					*/
+	/*{ MEHKEY, XK_q,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_w,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_e,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_e,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_r,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_r,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_t,                 spawn,          SHCMD("theme-switcher") },
-	{ MEHKEY, XK_y,                 spawn,          SHCMD("mpv-clipboard") },
-	{ MEHKEY, XK_u,                 spawn,          SHCMD("transmission-gtk") },
+	/*{ MEHKEY|MODKEY, XK_t,          spawn,          SHCMD("") },*/
+	{ MEHKEY, XK_y,                 spawn,          SHCMD("transmission-gtk") },
+	/*{ MEHKEY|MODKEY, XK_y,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_u,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_u,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_i,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_i,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") },
-	{ MEHKEY, XK_p,                 spawn,          SHCMD("mpv $(xclip -o) --no-video") },
+	/*{ MEHKEY|MODKEY, XK_o,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_p,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") },*/
+
+	/*				ROW 3					*/
 	{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
-	{ MEHKEY, XK_s,                 spawn,          SHCMD("mpv $(xclip -o) --no-video --shuffle") },
-	{ MEHKEY, XK_f,                 spawn,          SHCMD("flameshot gui") },
+	/*{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_s,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_d,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_f,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
-	{ MEHKEY, XK_h,                 spawn,          SHCMD("yt-playlist") },
-	{ MEHKEY, XK_j,                 spawn,          SHCMD("mousewiggle") },
+	/*{ MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_h,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") },*/
+	{ MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 1 300") },
+	/*{ MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_k,                 spawn,          SHCMD("keepassxc") },
+	/*{ MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_l,                 spawn,          SHCMD("qutebrowser") },
+	/*{ MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_semicolon,         spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_semicolon,  spawn,	  SHCMD("") },*/
+	/*{ MEHKEY, XK_apostrophe,        spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_apostrophe, spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_Return,	          spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_Return,     spawn,          SHCMD("") },*/
+
+	/*				ROW 4					*/
+	/*{ MEHKEY, XK_z,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_x,                 spawn,          SHCMD("xset r rate 300 50") },
-	{ MEHKEY, XK_v,                 spawn,          SHCMD("yt-dlp --config-location ~/.config/yt-dlp/yt-dlp-video.conf $(xclip -o)") },
-	{ MEHKEY, XK_b,                 spawn,          SHCMD("bookmark") },
+	/*{ MEHKEY|MODKEY, XK_x,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_c,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_v,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_b,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
-/*
-	{ MEHKEY, XK_a,                 spawn,          SHCMD("") },
-*/
-	/*					XF86 KEYS					*/
+	/*{ MEHKEY|MODKEY, XK_space,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_n,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_n,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_m,                 spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_m,          spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_comma,             spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") },*/
+	/*{ MEHKEY, XK_period,            spawn,          SHCMD("") },*/
+	/*{ MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") },*/
+
+	/*				XF86 KEYS				*/
 	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 3; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 3; kill -44 $(pidof dwmblocks)") },
