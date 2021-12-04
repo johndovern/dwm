@@ -294,7 +294,7 @@ static Key keys[] = {
 	/*{ MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") },*/
 	/*{ MEHKEY, XK_e,                 spawn,          SHCMD("") },*/
 	/*{ MEHKEY|MODKEY, XK_e,          spawn,          SHCMD("") },*/
-	/*{ MEHKEY, XK_r,                 spawn,          SHCMD("") },*/
+	{ MEHKEY, XK_r,                 spawn,          SHCMD("dautoupdate") },
 	/*{ MEHKEY|MODKEY, XK_r,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_t,                 spawn,          SHCMD("theme-switcher") },
 	/*{ MEHKEY|MODKEY, XK_t,          spawn,          SHCMD("") },*/
