@@ -49,15 +49,14 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	*/
 	/* class     instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",      NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
 	{ NULL,        NULL,       "Event Tester",  0,            0,           0,         1,        -1 },
 	{ NULL,       "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,       "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
-	{ "Lutris",    NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
-	{ "KeePassXC", NULL,       NULL,       	    1 << 1,       0,           0,         0,        -1 },
-	{ "fate.exe",  NULL,       NULL,       	    1 << 2,       1,           0,         0,        -1 },
-	{ "kdenlive",  NULL,       NULL,       	    1 << 3,       0,           0,         0,        -1 },
+	{ "Lutris",    NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
+	{ "fate.exe",  NULL,       NULL,       	    1 << 4,       1,           0,         0,        -1 },
+	{ "kdenlive",  NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
+	{ "Gimp",      NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 };
 
 /* layout(s) */
@@ -327,7 +326,7 @@ static Key keys[] = {
 	/*{ MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") },*/
 	{ MEHKEY, XK_k,                 spawn,          SHCMD("keepassxc") },
 	/*{ MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("") },*/
-	{ MEHKEY, XK_l,                 spawn,          SHCMD("qutebrowser") },
+	/*{ MEHKEY, XK_l,                 spawn,          SHCMD("") },*/
 	/*{ MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") },*/
 	/*{ MEHKEY, XK_semicolon,         spawn,          SHCMD("") },*/
 	/*{ MEHKEY|MODKEY, XK_semicolon,  spawn,	  SHCMD("") },*/
