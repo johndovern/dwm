@@ -15,7 +15,11 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-static char *fonts[]          = { "FantasqueSansMono Nerd Font Mono:size=12", "JoyPixels:pixelsize=13:antialias=true:autohint=true"  };
+/*FantasqueSansMono Nerd Font Mono:size=14*/
+static char *fonts[]          = {
+	"FantasqueSansMono Nerd Font Mono:size=14:antialias=true:autohint=true",
+	"JoyPixels:pixelsize=16:antialias=true:autohint=true"
+};
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
 static char normfgcolor[]           = "#eeeeee";
@@ -110,6 +114,9 @@ static const char *termcmd[]  = { TERMINAL, NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
+		/*{ "font",              STRING, &fonts[0] },*/
+		/*{ "font1",              STRING, &fonts[1] },*/
+		/*{ "font2",              STRING, &fonts[2] },*/
 		{ "colornbg",		STRING,	&normbgcolor },
 		{ "colornbord",		STRING,	&normbordercolor },
 		{ "colornfg",		STRING,	&normfgcolor },
