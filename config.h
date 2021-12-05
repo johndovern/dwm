@@ -18,7 +18,7 @@ static int topbar             = 1;        /* 0 means bottom bar */
 /*FantasqueSansMono Nerd Font Mono:size=14*/
 static char *fonts[]          = {
 	"FantasqueSansMono Nerd Font Mono:size=14:antialias=true:autohint=true",
-	"JoyPixels:pixelsize=16:antialias=true:autohint=true"
+	"JoyPixels:pixelsize=14:antialias=true:autohint=true"
 };
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
