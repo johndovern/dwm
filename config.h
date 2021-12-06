@@ -15,7 +15,6 @@ static int swallowfloating    = 0;        /* 1 means swallow floating windows by
 static int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
-/*FantasqueSansMono Nerd Font Mono:size=14*/
 static char *fonts[]          = {
 	"FantasqueSansMono Nerd Font Mono:size=14:antialias=true:autohint=true",
 	"JoyPixels:pixelsize=14:antialias=true:autohint=true"
@@ -74,15 +73,11 @@ static const Layout layouts[] = {
 	{ "[@]",	spiral },		/* Fibonacci spiral */
 	{ "[]=",	tile },			/* Default: Master on left, slaves on right */
 	{ "TTT",	bstack },		/* Master on top, slaves on bottom */
-
 	{ "[\\]",	dwindle },		/* Decreasing in size right and leftward */
-
 	{ "[D]",	deck },			/* Master on left, slaves in monocle-like mode on right */
 	{ "[M]",	monocle },		/* All windows on top of eachother */
-
 	{ "|M|",	centeredmaster },		/* Master in middle, slaves on sides */
 	{ ">M>",	centeredfloatingmaster },	/* Same but master floats */
-
 	{ "><>",	NULL },			/* no layout function means floating behavior */
 	{ NULL,		NULL },
 };
