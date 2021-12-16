@@ -51,15 +51,16 @@ static const Rule rules[] = {
 						 *	WM_CLASS(STRING) = instance, class
 						 *	WM_NAME(STRING) = title
 						*/
-						/* class     instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-						{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-						{ NULL,        NULL,       "Event Tester",  0,            0,           0,         1,        -1 },
-						{ NULL,       "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-						{ NULL,       "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
-						{ "Lutris",    NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
-						{ "fate.exe",  NULL,       NULL,       	    1 << 4,       1,           0,         0,        -1 },
-						{ "kdenlive",  NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
-						{ "Gimp",      NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
+						/* class              instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
+						{ TERMCLASS,             NULL,       NULL,       	    0,            0,           1,         0,        -1 },
+						{ NULL,                  NULL,       "Event Tester",  0,            0,           0,         1,        -1 },
+						{ NULL,                 "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
+						{ NULL,                 "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
+						{ "Lutris",              NULL,       NULL,       	    1 << 2,       0,           0,         0,        -1 },
+						{ "fate.exe",            NULL,       NULL,       	    1 << 3,       1,           0,         0,        -1 },
+						{ "Transmission-gtk",    NULL,       NULL,       	    1 << 4,       0,           0,         0,        -1 },
+						{ "kdenlive",            NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
+						{ "Gimp",                NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 };
 
 /* layout(s) */
