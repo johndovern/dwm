@@ -312,7 +312,7 @@ static Key keys[] = {
 						/*{ MEHKEY, XK_p,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") },*/
 
-						/*				ROW 3					*/
+						/*                              ROW 3                           */
 						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
 						/*{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_s,                 spawn,          SHCMD("") },*/
@@ -338,7 +338,7 @@ static Key keys[] = {
 						/*{ MEHKEY, XK_Return,	          spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_Return,     spawn,          SHCMD("") },*/
 
-						/*				ROW 4					*/
+						/*                              ROW 4                           */
 						/*{ MEHKEY, XK_z,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") },*/
 						{ MEHKEY, XK_x,                 spawn,          SHCMD("xset r rate 300 50") },
@@ -347,8 +347,8 @@ static Key keys[] = {
 						/*{ MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_v,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_b,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("") },*/
+						{ MEHKEY, XK_b,                 spawn,          SHCMD("btc") },
+						{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("bto") },
 						{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
 						/*{ MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_n,                 spawn,          SHCMD("") },*/
