@@ -320,7 +320,7 @@ static Key keys[] = {
 
 						/*                              ROW 3                           */
 						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
-						/*{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") },*/
+						{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("aniwiki") },
 						/*{ MEHKEY, XK_s,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_d,                 spawn,          SHCMD("") },*/
