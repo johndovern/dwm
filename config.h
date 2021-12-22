@@ -333,7 +333,7 @@ static Key keys[] = {
 						/*{ MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") },*/
 						{ MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 1 300") },
 						/*{ MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") },*/
-						{ MEHKEY, XK_k,                 spawn,          SHCMD("keepassxc") },
+						{ MEHKEY, XK_k,                 spawn,          SHCMD("keepasshide") },
 						/*{ MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_l,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") },*/
