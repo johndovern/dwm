@@ -347,7 +347,7 @@ static Key keys[] = {
 						/*                              ROW 4                           */
 						/*{ MEHKEY, XK_z,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") },*/
-						{ MEHKEY, XK_x,                 spawn,          SHCMD("xset r rate 300 50") },
+						{ MEHKEY, XK_x,                 spawn,          SHCMD("remaps") },
 						/*{ MEHKEY|MODKEY, XK_x,          spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_c,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") },*/
@@ -368,8 +368,8 @@ static Key keys[] = {
 
 						/*				XF86 KEYS				*/
 						{ 0, XF86XK_AudioMute,	        spawn,		      SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-						{ 0, XF86XK_AudioRaiseVolume,	  spawn,		      SHCMD("pamixer --allow-boost -i 3; kill -44 $(pidof dwmblocks)") },
-						{ 0, XF86XK_AudioLowerVolume,	  spawn,		      SHCMD("pamixer --allow-boost -d 3; kill -44 $(pidof dwmblocks)") },
+						{ 0, XF86XK_AudioRaiseVolume,	  spawn,		      SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+						{ 0, XF86XK_AudioLowerVolume,	  spawn,		      SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
 						{ 0, XF86XK_AudioPrev,		      spawn,		      SHCMD("mpc prev") },
 						{ 0, XF86XK_AudioNext,		      spawn,		      SHCMD("mpc next") },
 						{ 0, XF86XK_AudioPause,		      spawn,		      SHCMD("mpc pause") },
