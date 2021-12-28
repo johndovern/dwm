@@ -60,6 +60,7 @@ static const Rule rules[] = {
 						{ "fate.exe",            NULL,       NULL,       	    1 << 3,       1,           0,         0,        -1 },
 						{ "Transmission-gtk",    NULL,       NULL,       	    1 << 4,       0,           0,         0,        -1 },
 						{ "kdenlive",            NULL,       NULL,       	    1 << 6,       0,           0,         0,        -1 },
+						{ "KeePassXC",           NULL,       "KeePassXC",     1 << 8,       0,           0,         0,        -1 },
 						{ "Gimp",                NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 };
 
@@ -321,52 +322,52 @@ static Key keys[] = {
 						/*                              ROW 3                           */
 						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
 						{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("aniwiki") },
-						/*{ MEHKEY, XK_s,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_d,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_f,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") },*/
+						/* { MEHKEY, XK_s,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_d,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_f,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
-						/*{ MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_h,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_h,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 1 300") },
-						/*{ MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_k,                 spawn,          SHCMD("keepasshide") },
 						{ MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("killall keepassxc") },
-						/*{ MEHKEY, XK_l,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_semicolon,         spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_semicolon,  spawn,	  SHCMD("") },*/
-						/*{ MEHKEY, XK_apostrophe,        spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_apostrophe, spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_Return,	          spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_Return,     spawn,          SHCMD("") },*/
+						/* { MEHKEY, XK_l,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_semicolon,         spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_semicolon,  spawn,	        SHCMD("") }, */
+						/* { MEHKEY, XK_apostrophe,        spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_apostrophe, spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_Return,	          spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_Return,     spawn,          SHCMD("") }, */
 
 						/*                              ROW 4                           */
-						/*{ MEHKEY, XK_z,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") },*/
+						/* { MEHKEY, XK_z,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_x,                 spawn,          SHCMD("remaps") },
-						/*{ MEHKEY|MODKEY, XK_x,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_c,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_v,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_x,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_c,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_v,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_b,                 spawn,          SHCMD("dmenubluetooth") },
-						/* { MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("bto") }, */
+						/* { MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
-						/*{ MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_n,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_n,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_m,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_m,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_comma,             spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_period,            spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_n,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_n,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_m,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_m,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_comma,             spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_period,            spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") }, */
 
-						/*				XF86 KEYS				*/
+						/*				                      XF86 KEYS				                */
 						{ 0, XF86XK_AudioMute,	        spawn,		      SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
 						{ 0, XF86XK_AudioRaiseVolume,	  spawn,		      SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
 						{ 0, XF86XK_AudioLowerVolume,	  spawn,		      SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
