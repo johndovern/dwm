@@ -298,8 +298,8 @@ static Key keys[] = {
 						/*{ MEHKEY|MODKEY, XK_0,          spawn,          SHCMD("") },*/
 
 						/*                              ROW 2                           */
-						/*{ MEHKEY, XK_q,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("") },*/
+						{ MEHKEY, XK_q,                 spawn,          SHCMD("sleep 0.3 && xdotool key ctrl+b q") },
+						{ MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("sleep 0.3 && xdotool key ctrl+b Q") },
 						/*{ MEHKEY, XK_w,                 spawn,          SHCMD("") },*/
 						/*{ MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") },*/
 						/*{ MEHKEY, XK_e,                 spawn,          SHCMD("") },*/
@@ -354,8 +354,8 @@ static Key keys[] = {
 						/* { MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_v,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") }, */
-						{ MEHKEY, XK_b,                 spawn,          SHCMD("dmenubluetooth") },
-						{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("bto") },
+						{ MEHKEY, XK_b,                 spawn,          SHCMD("bto") },
+						{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("dmenubluetooth") },
 						{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
 						/* { MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_n,                 spawn,          SHCMD("") }, */
