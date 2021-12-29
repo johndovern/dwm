@@ -355,7 +355,7 @@ static Key keys[] = {
 						/* { MEHKEY, XK_v,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_b,                 spawn,          SHCMD("dmenubluetooth") },
-						/* { MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("") }, */
+						{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("bto") },
 						{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
 						/* { MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_n,                 spawn,          SHCMD("") }, */
