@@ -316,7 +316,7 @@ static Key keys[] = {
 						/*{ MEHKEY|MODKEY, XK_i,          spawn,          SHCMD("") },*/
 						{ MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") },
 						/*{ MEHKEY|MODKEY, XK_o,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_p,                 spawn,          SHCMD("") },*/
+						{ MEHKEY, XK_p,                 spawn,          SHCMD("mpv-play-pause") },
 						/*{ MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") },*/
 
 						/*                              ROW 3                           */
