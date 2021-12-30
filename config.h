@@ -95,7 +95,7 @@ static const Layout layouts[] = {
 #define STACKKEYS(MOD,ACTION) \
 						{ MOD,	XK_j,	ACTION##stack,	{.i = INC(+1) } }, \
 						{ MOD,	XK_k,	ACTION##stack,	{.i = INC(-1) } }, \
-						{ MOD,  XK_v,   ACTION##stack,  {.i = 0 } }, \
+						{ MOD,  XK_f,   ACTION##stack,  {.i = 0 } }, \
 						/* { MOD, XK_grave, ACTION##stack, {.i = PREVSEL } }, \ */
 						/* { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \ */
 						/* { MOD, XK_z,     ACTION##stack, {.i = 2 } }, \ */
@@ -201,7 +201,8 @@ static Key keys[] = {
 						/* { MODKEY|ShiftMask,		          XK_s,		        spawn,		      SHCMD("") }, */
 						{ MODKEY,			                  XK_d,		        spawn,          SHCMD("dmenu_run") },
 						{ MODKEY|ShiftMask,		          XK_d,		        spawn,          SHCMD("passmenu") },
-						{ MODKEY,			                  XK_f,		        togglefullscr,  {0} },
+						/* { MODKEY,			                  XK_f,		        togglefullscr,  {0} }, */
+						/* F is automatically bound above in STACKKEYS */
 						{ MODKEY|ShiftMask,		          XK_f,		        setlayout,      {.v = &layouts[8]} },
 						{ MODKEY,			                  XK_g,		        setmfact,       {.f = -0.05} },
 						/* { MODKEY,			                  XK_g,		        shiftview,      { .i = -1 } }, */
@@ -228,7 +229,8 @@ static Key keys[] = {
 						/* { MODKEY|ShiftMask,		          XK_x,		        spawn,		      SHCMD("") }, */
 						/* { MODKEY,			                  XK_c,		        spawn,		      SHCMD("") }, */
 						/* { MODKEY|ShiftMask,		          XK_c,		        spawn,		      SHCMD("") }, */
-						/* V is automatically bound above in STACKKEYS */
+						{ MODKEY,			                  XK_v,		        togglefullscr,  {0} },
+						/* { MODKEY|ShiftMask,		          XK_v,		        spawn,		      SHCMD("") }, */
 						{ MODKEY,			                  XK_b,		togglebar,	{0} },
 						/* { MODKEY|ShiftMask,		          XK_b,		        spawn,		      SHCMD("") }, */
 						{ MODKEY,			                  XK_n,		        spawn,		      SHCMD(TERMINAL " -e nvim -c VimwikiIndex") },
@@ -322,12 +324,12 @@ static Key keys[] = {
 						/*                              ROW 3                           */
 						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
 						{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("aniwiki") },
-						/* { MEHKEY, XK_s,                 spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png") },
 						/* { MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_d,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") }, */
-						/* { MEHKEY, XK_f,                 spawn,          SHCMD("") }, */
-						/* { MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_f,                 spawn,          SHCMD("mpv-focus") },
+						{ MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("mpv-float") },
 						{ MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
 						/* { MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_h,                 spawn,          SHCMD("") }, */
