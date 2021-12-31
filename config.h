@@ -268,7 +268,7 @@ static Key keys[] = {
 						{ MODKEY,			                  XK_space,	      zoom,		        {0} },
 						{ MODKEY|ShiftMask,		          XK_space,	      togglefloating,	{0} },
 
-						{ 0,				                    XK_Print,	      spawn,		      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+						/* { 0,				                    XK_Print,	      spawn,		      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") }, */
 						{ ShiftMask,                    XK_Print,	      spawn,		      SHCMD("maimpick") },
 						{ MODKEY,			                  XK_Print,	      spawn,		      SHCMD("dmenurecord") },
 						{ MODKEY|ShiftMask,		          XK_Print,	      spawn,		      SHCMD("dmenurecord kill") },
@@ -278,67 +278,67 @@ static Key keys[] = {
 						/*                              MY KEYS                         */
 
 						/*                              ROW 1                           */
-						/*{ MEHKEY, XK_1,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_1,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_2,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_2,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_3,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_3,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_4,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_4,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_5,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_5,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_6,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_6,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_7,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_7,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_8,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_8,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_9,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_9,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_0,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_0,          spawn,          SHCMD("") },*/
+						/* { MEHKEY, XK_1,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_1,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_2,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_2,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_3,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_3,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_4,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_4,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_5,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_5,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_6,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_6,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_7,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_7,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_8,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_8,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_9,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_9,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_0,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_0,          spawn,          SHCMD("") }, */
 
 						/*                              ROW 2                           */
-						{ MEHKEY, XK_q,                 spawn,          SHCMD("sleep 0.3 && xdotool key ctrl+b q") },
-						{ MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("sleep 0.3 && xdotool key ctrl+b Q") },
-						/*{ MEHKEY, XK_w,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_e,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_e,          spawn,          SHCMD("") },*/
+						/* { MEHKEY, XK_q,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_w,                 spawn,          SHCMD("aniwiki") },
+						/* { MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_e,                 spawn,          SHCMD("mpv-focus-fullscreen") },
+						/* { MEHKEY|MODKEY, XK_e,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_r,                 spawn,          SHCMD("dautoupdate") },
-						/*{ MEHKEY|MODKEY, XK_r,          spawn,          SHCMD("") },*/
-						{ MEHKEY, XK_t,                 spawn,          SHCMD("theme-switcher") },
-						/*{ MEHKEY|MODKEY, XK_t,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_r,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_t,                 spawn,          SHCMD(TERMINAL " -e nvim -c VimwikiIndex -c 'VimwikiGoto temp-notes'") },
+						/* { MEHKEY|MODKEY, XK_t,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_y,                 spawn,          SHCMD("transmission-gtk") },
-						/*{ MEHKEY|MODKEY, XK_y,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_u,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_u,          spawn,          SHCMD("") },*/
-						/*{ MEHKEY, XK_i,                 spawn,          SHCMD("") },*/
-						/*{ MEHKEY|MODKEY, XK_i,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_y,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_u,                 spawn,          SHCMD("librewolf") },
+						/* { MEHKEY|MODKEY, XK_u,          spawn,          SHCMD("") }, */
+						/* { MEHKEY, XK_i,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_i,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") },
-						/*{ MEHKEY|MODKEY, XK_o,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_o,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_p,                 spawn,          SHCMD("mpv-play-pause") },
-						/*{ MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") },*/
+						/* { MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") }, */
 
 						/*                              ROW 3                           */
-						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 1 300") },
-						{ MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("aniwiki") },
-						{ MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png") },
+						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 0 300") },
+						/* { MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300") },
 						/* { MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("") }, */
-						/* { MEHKEY, XK_d,                 spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_d,                 spawn,          SHCMD("sleep 0.5 && mpv-float") },
 						/* { MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_f,                 spawn,          SHCMD("mpv-focus") },
-						{ MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("mpv-float") },
+						/* { MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
 						/* { MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_h,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") }, */
-						{ MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 1 300") },
+						{ MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300") },
 						/* { MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_k,                 spawn,          SHCMD("keepasshide") },
-						{ MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("killall keepassxc") },
-						/* { MEHKEY, XK_l,                 spawn,          SHCMD("") }, */
+						/* { MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_l,                 spawn,          SHCMD("killall keepassxc") },
 						/* { MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_semicolon,         spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_semicolon,  spawn,	        SHCMD("") }, */
@@ -368,6 +368,7 @@ static Key keys[] = {
 						/* { MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_period,            spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") }, */
+						{ MEHKEY,				                    XK_Print,	      spawn,		      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 
 						/*				                      XF86 KEYS				                */
 						{ 0, XF86XK_AudioMute,	        spawn,		      SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
