@@ -364,9 +364,9 @@ static Key keys[] = {
 						/* { MEHKEY|MODKEY, XK_n,          spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_m,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_m,          spawn,          SHCMD("") }, */
-						/* { MEHKEY, XK_comma,             spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_comma,             spawn,          SHCMD("mpv-prev-song") },
 						/* { MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") }, */
-						/* { MEHKEY, XK_period,            spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_period,            spawn,          SHCMD("mpv-next-song") },
 						/* { MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") }, */
 						{ MEHKEY,				                    XK_Print,	      spawn,		      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 
