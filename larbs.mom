@@ -103,7 +103,9 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+Space\fP \(en Make selected window the master (or switch master with 2nd)
 .ITEM
-\f(CWMod+h/l\fP \(en Change width of master window
+\f(CWMod+h/l\fP \(en Switch to the tag left or right of your current tag
+.ITEM
+\f(CWMod+g/;\fP \(en Change width of master window
 .ITEM
 \f(CWMod+z/x\fP \(en Increase/decrease gaps (may also hold \f(CWMod\fP and scroll mouse)
 .ITEM
@@ -117,28 +119,28 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+b\fP \(en Toggle statusbar (may also middle click on desktop)
 .ITEM
-\f(CWMod+v\fP \(en Jump to master window
+\f(CWMod+f\fP \(en Jump to master window
 .LIST OFF
 .HEADING 2 "Window layouts"
 .LI
 .ITEM
-\f(CWMod+t\fP \(en Tiling mode (active by default)
+\f(CWMod+y\fP \(en Tiling mode (active by default)
 .ITEM
 \f(CWMod+T\fP \(en Bottom stack mode (just like tiling, but master is on top)
 .ITEM
-\f(CWMod+f\fP \(en Fullscreen mode
+\f(CWMod+v\fP \(en Fullscreen mode
 .ITEM
 \f(CWMod+F\fP \(en Floating (AKA normie) mode
 .ITEM
-\f(CWMod+y\fP \(en Fibbonacci spiral mode
+\f(CWMod+t\fP \(en Fibbonacci spiral mode
 .ITEM
 \f(CWMod+Y\fP \(en Dwindle mode (similar to Fibonacci)
 .ITEM
 \f(CWMod+u\fP \(en Master on left, other windows in monocle mode
 .ITEM
-\f(CWMod+U\fP \(en Monocle mode (all windows fullscreen and cycle through)
+\f(CWMod+i\fP \(en Monocle mode (all windows fullscreen and cycle through)
 .ITEM
-\f(CWMod+i\fP \(en Center the master window
+\f(CWMod+U\fP \(en Center the master window
 .ITEM
 \f(CWMod+I\fP \(en Center and float the master window
 .ITEM
@@ -157,7 +159,7 @@ To type capital letters, hold down the \f(CWShift\fP key\(emthat might sound lik
 .ITEM
 \f(CWMod+m\fP \(en ncmpcpp (music player)
 .ITEM
-\f(CWMod+w\fP \(en Web browser (Brave by default)
+\f(CWMod+w\fP \(en Web browser (Qutebrowser by default)
 .ITEM
 \f(CWMod+W\fP \(en nmtui (for connecting to wireless internet)
 .ITEM
@@ -184,9 +186,9 @@ There are nine tags, active tags are highlighted in the top left.
 .ITEM
 \f(CWMod+Tab\fP \(en Go to previous tag (may also use \f(CW\\\fP for Tab)
 .ITEM
-\f(CWMod+g\fP \(en Go to left tag (hold shift to send window there)
+\f(CWMod+h\fP \(en Go to left tag (hold shift to send window there)
 .ITEM
-\f(CWMod+;\fP \(en Go to right tag (hold shift to send window there)
+\f(CWMod+l\fP \(en Go to right tag (hold shift to send window there)
 .ITEM
 \f(CWMod+Left/Right\fP \(en Go to another display
 .ITEM
@@ -240,7 +242,7 @@ I use ncmpcpp as a music player, which is a front end for mpd.
 .ITEM
 \f(CWMod+p\fP \(en Toggle pause
 .ITEM
-\f(CWMod+p\fP \(en Force pause music player daemon and all mpv videos
+\f(CWMod+P\fP \(en Force pause music player daemon and all mpv videos
 .ITEM
 \f(CWMod+M\fP \(en Mute all audio
 .ITEM

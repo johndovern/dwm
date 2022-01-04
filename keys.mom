@@ -1,0 +1,275 @@
+.de LI
+.LIST
+.SHIFT_LIST 10p
+..
+.PARA_SPACE 1m
+.TITLE "\s+(10System Keybinds\s0"
+.AUTHOR "\s+5Anon\s0"
+.DOCTYPE    DEFAULT
+.COPYSTYLE  FINAL
+.PRINTSTYLE TYPESET
+.PT_SIZE 12
+.START
+.HEADING 1 "Terms"
+.LI
+.ITEM
+\fBMod\fP \(en Windows/Super key
+.ITEM
+\fBMeh\fP \(en Shift+Ctrl+Alt. With a programmable keyboard this is one key. Use Kmonad for non-QMK keyboards.
+.LIST OFF
+.HEADING 1 "dwm"
+.HEADING 2 "MOD Keys"
+.HEADING 3 "Row 1"
+.LI
+.ITEM
+\f(CWMod+`  \(en  Select and emoji to copy to clipboard\fP
+.ITEM
+\f(CWMod+[1-9]  \(en  Switch to tag [1-9]\fP
+.ITEM
+\f(CWMod+0  \(en  Toggle all tags\fP
+.ITEM
+\f(CWMod+)  \(en  Focused window is sent to all tags\fP
+.ITEM
+\f(CWMod+-  \(en  Increase volume by 5\fP
+.ITEM
+\f(CWMod+_  \(en  Increase volume by 15\fP
+.ITEM
+\f(CWMod+=  \(en  Decrease volume by 5\fP
+.ITEM
+\f(CWMod++  \(en  Decrease volume by 15\fP
+.ITEM
+\f(CWMod+Backspace  \(en  Choose to lock screen, logout, etc.\fP
+.LIST OFF
+.HEADING 3 "Row 2"
+.LI
+.ITEM
+\f(CWMod+Tab  \(en  Switch to previous tag\fP
+.ITEM
+\f(CWMod+q  \(en  Kill focused window\fP
+.ITEM
+\f(CWMod+Q  \(en  See Mod+Backspace\fP
+.ITEM
+\f(CWMod+w  \(en  Spawn $BROWSER\fP
+.ITEM
+\f(CWMod+W  \(en  Connect to WiFi network\fP
+.ITEM
+\f(CWMod+e  \(en  Spawn neomutt (Email)\fP
+.ITEM
+\f(CWMod+E  \(en  Spawn abook (address book)\fP
+.ITEM
+\f(CWMod+r  \(en  Spawn lf Terminal File Manager\fP
+.ITEM
+\f(CWMod+R  \(en  Spawn htop\fP
+.ITEM
+\f(CWMod+t  \(en  Switch to spiral window layout\fP
+.ITEM
+\f(CWMod+T  \(en  Switch to bottom stack window layout\fP
+.ITEM
+\f(CWMod+y  \(en  Switch to tile window layout\fP
+.ITEM
+\f(CWMod+Y  \(en  Switch to dwindle window layout\fP
+.ITEM
+\f(CWMod+u  \(en  Switch to deck window layout\fP
+.ITEM
+\f(CWMod+U  \(en  Switch to centered master window layout\fP
+.ITEM
+\f(CWMod+i  \(en  Switch to monocle window layout\fP
+.ITEM
+\f(CWMod+I  \(en  Switch to floating centered master window layout\fP
+.ITEM
+\f(CWMod+o  \(en  Increase number of master windows\fP
+.ITEM
+\f(CWMod+O  \(en  Decrease number of master windows\fP
+.ITEM
+\f(CWMod+p  \(en  Toggle mpc playback\fP
+.ITEM
+\f(CWMod+P  \(en  Pause all mpv instances and mpc playback (needs mpvSockets.lua in ~/.config/mpv/scripts)\fP
+.ITEM
+\f(CWMod+[  \(en  Seek back 10 seconds in mpc\fP
+.ITEM
+\f(CWMod+{  \(en  Seek forward 10 seconds in mpc\fP
+.ITEM
+\f(CWMod+]  \(en  Seek back 1 minute in mpc\fP
+.ITEM
+\f(CWMod+}  \(en  Seek forward 1 minute in mpc\fP
+.ITEM
+\f(CWMod+/  \(en  Same as Mod+Tab\fP
+.LIST OFF
+.HEADING 3 "Row 3"
+.LI
+.ITEM
+\f(CWMod+a  \(en  Toggle gaps\fP
+.ITEM
+\f(CWMod+s  \(en  Focused window becomes stickied (follows you from tag to tag)\fP
+.ITEM
+\f(CWMod+d  \(en  Spawn dmenu\fP
+.ITEM
+\f(CWMod+D  \(en  Spawn $PASSMAN (password manager set in ~/.config/shell/profile)\fP
+.ITEM
+\f(CWMod+f  \(en  Focus master window\fP
+.ITEM
+\f(CWMod+F  \(en  Toggle floating layout\fP
+.ITEM
+\f(CWMod+g  \(en  Decrease master width\fP
+.ITEM
+\f(CWMod+h  \(en  Move to left tag\fP
+.ITEM
+\f(CWMod+H  \(en  Send focused window to left tag\fP
+.ITEM
+\f(CWMod+j  \(en  Shift focus down windows stack\fP
+.ITEM
+\f(CWMod+J  \(en  Move focused window down the stack\fP
+.ITEM
+\f(CWMod+k  \(en  Shift focus up the window stack\fP
+.ITEM
+\f(CWMod+K  \(en  Move focused window up the stack\fP
+.ITEM
+\f(CWMod+l  \(en  Move to right tag\fP
+.ITEM
+\f(CWMod+L  \(en  Send focused window to right tag\fP
+.ITEM
+\f(CWMod+;  \(en  Increase master width\fP
+.ITEM
+\f(CWMod+'  \(en  Spawn scratch calculator\fP
+.ITEM
+\f(CWMod+enter  \(en  Spawn terminal\fP
+.ITEM
+\f(CWMod+ENTER  \(en  Spawn scratch/floating terminal\fP
+.LIST OFF
+.HEADING 3 "Row 4"
+.LI
+.ITEM
+\f(CWMod+z  \(en  Increase gaps\fP
+.ITEM
+\f(CWMod+x  \(en  Decrease gaps\fP
+.ITEM
+\f(CWMod+v  \(en  Fullscreen focused window\fP
+.ITEM
+\f(CWMod+b  \(en  Toggle bar\fP
+.ITEM
+\f(CWMod+n  \(en  Spawn VimWiki\fP
+.ITEM
+\f(CWMod+N  \(en  Spawn newsboat\fP
+.ITEM
+\f(CWMod+m  \(en  Spawn ncmpcpp\fP
+.ITEM
+\f(CWMod+M  \(en  Mute system\fP
+.ITEM
+\f(CWMod+,  \(en  Previous song\fP
+.ITEM
+\f(CWMod+<  \(en  Restart current song\fP
+.ITEM
+\f(CWMod+.  \(en  Next song\fP
+.ITEM
+\f(CWMod+>  \(en  Repeat song\fP
+.LIST OFF
+.HEADING 3 "MISC Keys"
+.LI
+.ITEM
+\f(CWMod+pgup  \(en  See Mod+h\fP
+.ITEM
+\f(CWMod+PGUP  \(en  See Mod+H\fP
+.ITEM
+\f(CWMod+pgdn  \(en  See Mod+l\fP
+.ITEM
+\f(CWMod+PGDN  \(en See Mod+L\fP
+.ITEM
+\f(CWMod+ins  \(en  Show clipboard/primary buffer contents\fP
+.ITEM
+\f(CWMod+F1  \(en  Display "A Friendly Guide to LARBS"\fP
+.ITEM
+\f(CWMod+F2  \(en  Pick a tutorial video\fP
+.ITEM
+\f(CWMod+F3  \(en  Select a display\fP
+.ITEM
+\f(CWMod+F4  \(en  Spawn pulsemixer\fP
+.ITEM
+\f(CWMod+F6  \(en  Transmission torrent client\fP
+.ITEM
+\f(CWMod+F7  \(en  Toggle transmission client via dmenu\fP
+.ITEM
+\f(CWMod+F8  \(en  Spawn muttwizard\fP
+.ITEM
+\f(CWMod+F9  \(en  Mount a drive\fP
+.ITEM
+\f(CWMod+F10  \(en  Unmount non-essential drive or Android\fP
+.ITEM
+\f(CWMod+F11  \(en  View webcam\fP
+.ITEM
+\f(CWMod+F12  \(en  Rerun keyboard mapping scripts if new keyboard is attached\fP
+.ITEM
+\f(CWMod+space  \(en  Focused window becomes master (if master is focused, swaps with 2nd window)\fP
+.ITEM
+\f(CWMod+SPACE  \(en  Float focused window\fP
+.ITEM
+\f(CWprint  \(en  Screenshot desktop\fP
+.ITEM
+\f(CWPRINT  \(en  Choose from various options/functions for taking a screenshot\fP
+.ITEM
+\f(CWMod+print  \(en  Spawns dmenu to select kind of audio/video recording\fP
+.ITEM
+\f(CWMod+PRINT  \(en  Kill recording\fP
+.ITEM
+\f(CWMod+del  \(en  Kill recording\fP
+.ITEM
+\f(CWMod+scroll lock  \(en  Toggle screenkey\fP
+.LIST OFF
+.HEADING 2 "MEH Keys"
+.HEADING 3 "Row 2"
+.LI
+.ITEM
+\f(CWMeh+q  \(en  Kill mpv if only one instance is open, dmenu will prompt if multiple open\fP
+.ITEM
+\f(CWMeh+w  \(en  Spawn VimWiki to aniwiki entry\fP
+.ITEM
+\f(CWMeh+e  \(en  Focus mpv instance\fP
+.ITEM
+\f(CWMeh+r  \(en  Pick repos to update\fP
+.ITEM
+\f(CWMeh+t  \(en  Spawn temp notes entry in VimWiki\fP
+.ITEM
+\f(CWMeh+y  \(en  Spawn transmission GUI\fP
+.ITEM
+\f(CWMeh+u  \(en  Spawn librewolf\fP
+.ITEM
+\f(CWMeh+o  \(en  Spawn mpv with some fun AMVs\fP
+.ITEM
+\f(CWMeh+p  \(en  Pause mpv\fP
+.LIST OFF
+.HEADING 3 "Row 3"
+.LI
+.ITEM
+\f(CWMeh+a  \(en  Move mouse to left edge of monitor\fP
+.ITEM
+\f(CWMeh+s  \(en  Select area of screen to take a screenshot\fP
+.ITEM
+\f(CWMeh+S  \(en  Sticky mpv window of choice\fP
+.ITEM
+\f(CWMeh+d  \(en  Float mpv window of choice\fP
+.ITEM
+\f(CWMeh+f  \(en  Focus mpv window of choice\fP
+.ITEM
+\f(CWMeh+g  \(en  Spawn mpv with some groovy music\fP
+.ITEM
+\f(CWMeh+j  \(en  Mouse jiggle\fP
+.ITEM
+\f(CWMeh+k  \(en  Spawn keypassxc and hide after it becomes unlocked\fP
+.ITEM
+\f(CWMeh+l  \(en  Kill keypassxc\fP
+.LIST OFF
+.HEADING 3 "Row 4"
+.LI
+.ITEM
+\f(CWMeh+x  \(en  Run remaps script\fP
+.ITEM
+\f(CWMeh+b  \(en  Disconnect AirPods\fP
+.ITEM
+\f(CWMeh+B  \(en  Choose how to interact with AirPods\fP
+.ITEM
+\f(CWMeh+,  \(en  Play previous file in mpv playlist\fP
+.ITEM
+\f(CWMeh+.  \(en  Play next file in mpv playlist\fP
+.LIST OFF
+.HEADING 3 "MISC Keys"
+.LI
+.LIST OFF
