@@ -368,7 +368,7 @@ static Key keys[] = {
 						/* { MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_n,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_n,          spawn,          SHCMD("") }, */
-						/* { MEHKEY, XK_m,                 spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_m,                 spawn,          SHCMD(TERMINAL " -e lfrun ~/documents/manga/") },
 						/* { MEHKEY|MODKEY, XK_m,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_comma,             spawn,          SHCMD("mpv-prev-song") },
 						/* { MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") }, */

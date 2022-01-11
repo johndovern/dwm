@@ -87,9 +87,9 @@
 .ITEM
 \f(CWMod+[  \(en  Seek back 10 seconds in mpc\fP
 .ITEM
-\f(CWMod+{  \(en  Seek forward 10 seconds in mpc\fP
+\f(CWMod+{  \(en  Seek back 1 minute in mpc\fP
 .ITEM
-\f(CWMod+]  \(en  Seek back 1 minute in mpc\fP
+\f(CWMod+]  \(en  Seek forward 10 seconds in mpc\fP
 .ITEM
 \f(CWMod+}  \(en  Seek forward 1 minute in mpc\fP
 .ITEM
