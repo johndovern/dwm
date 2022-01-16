@@ -328,7 +328,7 @@ static Key keys[] = {
 						/* { MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") }, */
 
 						/*                              ROW 3                           */
-						{ MEHKEY, XK_a,                 spawn,          SHCMD("xdotool mousemove --sync 0 300") },
+						{ MEHKEY, XK_a,                 spawn,          SHCMD(TERMINAL " -e lfrun ~/videos/anime/") },
 						/* { MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300") },
 						{ MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("mpv-options sticky") },
@@ -358,12 +358,12 @@ static Key keys[] = {
 						/* { MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") }, */
 						{ MEHKEY, XK_x,                 spawn,          SHCMD("remaps") },
 						/* { MEHKEY|MODKEY, XK_x,          spawn,          SHCMD("") }, */
-						/* { MEHKEY, XK_c,                 spawn,          SHCMD("") }, */
-						/* { MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("") }, */
+						{ MEHKEY, XK_c,                 spawn,          SHCMD("dmenubluetooth reconnect") },
+						{ MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("dmenubluetooth turn-on") },
 						/* { MEHKEY, XK_v,                 spawn,          SHCMD("") }, */
 						/* { MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") }, */
-						{ MEHKEY, XK_b,                 spawn,          SHCMD("bto") },
-						{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("dmenubluetooth") },
+						{ MEHKEY, XK_b,                 spawn,          SHCMD("dmenubluetooth disconnect") },
+						{ MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("dmenubluetooth opts") },
 						{ MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
 						/* { MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") }, */
 						/* { MEHKEY, XK_n,                 spawn,          SHCMD("") }, */
