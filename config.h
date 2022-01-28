@@ -73,16 +73,16 @@ static int resizehints = 0;    /* 1 means respect size hints in tiled resizals *
 #include "vanitygaps.c"
 static const Layout layouts[] = {
 						/* symbol     arrange function */
-						{ "[]=",	tile },			/* Default: Master on left, slaves on right */
-						{ "[@]",	spiral },		/* Fibonacci spiral */
-						{ "TTT",	bstack },		/* Master on top, slaves on bottom */
-						{ "[\\]",	dwindle },		/* Decreasing in size right and leftward */
-						{ "[D]",	deck },			/* Master on left, slaves in monocle-like mode on right */
-						{ "[M]",	monocle },		/* All windows on top of eachother */
-						{ "|M|",	centeredmaster },		/* Master in middle, slaves on sides */
-						{ ">M>",	centeredfloatingmaster },	/* Same but master floats */
-						{ "><>",	NULL },			/* no layout function means floating behavior */
-						{ NULL,		NULL },
+						{ "[@]",	    spiral },		/* Default: Fibonacci spiral */
+						{ "[]=",	    tile },			/* Master on left, slaves on right */
+						{ "TTT",	    bstack },		/* Master on top, slaves on bottom */
+						{ "[\\]",	    dwindle },	/* Decreasing in size right and leftward */
+						{ "[D]",	    deck },			/* Master on left, slaves in monocle-like mode on right */
+						{ "[M]",	    monocle },	/* All windows on top of eachother */
+						{ "|M|",	    centeredmaster },		/* Master in middle, slaves on sides */
+						{ ">M>",	    centeredfloatingmaster },	/* Same but master floats */
+						{ "><>",	    NULL },			/* no layout function means floating behavior */
+						{ NULL,		    NULL },
 };
 
 /* key definitions */
@@ -112,35 +112,32 @@ static const char *termcmd[]  = { TERMINAL, NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-							/*{ "font",              STRING, &fonts[0] },*/
-							/*{ "font1",              STRING, &fonts[1] },*/
-							/*{ "font2",              STRING, &fonts[2] },*/
-							{ "colornbg",		STRING,	&normbgcolor },
-							{ "colornbord",		STRING,	&normbordercolor },
-							{ "colornfg",		STRING,	&normfgcolor },
-							{ "colorselfg",		STRING,	&selfgcolor },
-							{ "colorselbord",	STRING,	&selbordercolor },
-							{ "colorselbg",		STRING,	&selbgcolor },
-							{ "borderpx",		INTEGER, &borderpx },
-							{ "snap",		INTEGER, &snap },
-							{ "showbar",		INTEGER, &showbar },
-							{ "topbar",		INTEGER, &topbar },
-							{ "nmaster",		INTEGER, &nmaster },
-							{ "resizehints",	INTEGER, &resizehints },
-							{ "mfact",		FLOAT,	&mfact },
-							{ "gappih",		INTEGER, &gappih },
-							{ "gappiv",		INTEGER, &gappiv },
-							{ "gappoh",		INTEGER, &gappoh },
-							{ "gappov",		INTEGER, &gappov },
-							{ "swallowfloating",	INTEGER, &swallowfloating },
-							{ "smartgaps",		INTEGER, &smartgaps },
+							{ "colornbg",		      STRING,	  &normbgcolor },
+							{ "colornbord",       STRING,	  &normbordercolor },
+							{ "colornfg",		      STRING,	  &normfgcolor },
+							{ "colorselfg",		    STRING,	  &selfgcolor },
+							{ "colorselbord",	    STRING,	  &selbordercolor },
+							{ "colorselbg",		    STRING,	  &selbgcolor },
+							{ "borderpx",		      INTEGER,  &borderpx },
+							{ "snap",		          INTEGER,  &snap },
+							{ "showbar",		      INTEGER,  &showbar },
+							{ "topbar",		        INTEGER,  &topbar },
+							{ "nmaster",		      INTEGER,  &nmaster },
+							{ "resizehints",      INTEGER,  &resizehints },
+							{ "mfact",		        FLOAT,	  &mfact },
+							{ "gappih",           INTEGER,  &gappih },
+							{ "gappiv",		        INTEGER,  &gappiv },
+							{ "gappoh",		        INTEGER,  &gappoh },
+							{ "gappov",		        INTEGER,  &gappov },
+							{ "swallowfloating",	INTEGER,  &swallowfloating },
+							{ "smartgaps",		    INTEGER,  &smartgaps },
 };
 
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
 
 static Key keys[] = {
-						/* modifier                     key        function        argument */
+						/* modifier                     key        function    argument */
 						/*                              ROW 1                           */
 						STACKKEYS(MODKEY,               focus)
 						STACKKEYS(MODKEY|ShiftMask,     push)
@@ -202,31 +199,31 @@ static Key keys[] = {
 						/* { MODKEY|ShiftMask, XK_s,       spawn,          SHCMD("") }, */
 						{ MODKEY, XK_d,                 spawn,          SHCMD("dmenu_run") },
 						{ MODKEY|ShiftMask, XK_d,       spawn,          SHCMD("passmenu") },
-						/* F is automatically bound above in STACKKEYS */
-						{ MODKEY|ShiftMask,		          XK_f,		        setlayout,      {.v = &layouts[8]} },
-						{ MODKEY, XK_g,		        setmfact,       {.f = -0.05} },
-						/* { MODKEY, XK_g,		        shiftview,      { .i = -1 } }, */
-						/* { MODKEY|ShiftMask,		          XK_g,		        shifttag,       { .i = -1 } }, */
-						/* { MODKEY, XK_h,		        setmfact,       {.f = -0.05} }, */
-						{ MODKEY, XK_h,		        shiftview,      { .i = -1 } },
-						{ MODKEY|ShiftMask,		          XK_h,		        shifttag,       { .i = -1 } },
-						/* J and K are automatically bound above in STACKEYS */
-						{ MODKEY, XK_l,           shiftview,      { .i = 1 } },
-						{ MODKEY|ShiftMask,		          XK_l,           shifttag,       { .i = 1 } },
-						/* { MODKEY, XK_l,           setmfact,      	{.f = +0.05} }, */
-						/* { MODKEY, XK_semicolon,   shiftview,      { .i = 1 } }, */
-						/* { MODKEY|ShiftMask,		          XK_semicolon,   shifttag,       { .i = 1 } }, */
-						{ MODKEY, XK_semicolon,   setmfact,      	{.f = +0.05} },
-						{ MODKEY,			                  XK_apostrophe,	togglescratch,	{.ui = 1} },
-						/* { MODKEY|ShiftMask,		          XK_apostrophe,	spawn,		      SHCMD("") }, */
-						{ MODKEY, XK_Return,	    spawn,		      {.v = termcmd } },
-						{ MODKEY|ShiftMask,		          XK_Return,	    togglescratch,	{.ui = 0} },
+						/*          F is automatically bound above in STACKKEYS         */
+						{ MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} },
+						{ MODKEY, XK_g,		              setmfact,       {.f = -0.05} },
+						/* { MODKEY, XK_g,		              shiftview,      { .i = -1 } }, */
+						/* { MODKEY|ShiftMask, XK_g,	      shifttag,       { .i = -1 } }, */
+						/* { MODKEY, XK_h,		              setmfact,       {.f = -0.05} }, */
+						{ MODKEY, XK_h,		              shiftview,      { .i = -1 } },
+						{ MODKEY|ShiftMask, XK_h,		    shifttag,       { .i = -1 } },
+						/*       J and K are automatically bound above in STACKEYS      */
+						{ MODKEY, XK_l,                 shiftview,      { .i = 1 } },
+						{ MODKEY|ShiftMask, XK_l,       shifttag,       { .i = 1 } },
+						/* { MODKEY, XK_l,                  setmfact,      	{.f = +0.05} }, */
+						/* { MODKEY, XK_semicolon,          shiftview,      { .i = 1 } }, */
+						/* { MODKEY|ShiftMask, XK_semicolon, shifttag,      { .i = 1 } }, */
+						{ MODKEY, XK_semicolon,         setmfact,      	{.f = +0.05} },
+						{ MODKEY, XK_apostrophe,	      togglescratch,	{.ui = 1} },
+						/* { MODKEY|ShiftMask, XK_apostrophe,	spawn,		    SHCMD("") }, */
+						{ MODKEY, XK_Return,	          spawn,		      {.v = termcmd } },
+						{ MODKEY|ShiftMask, XK_Return,  togglescratch,	{.ui = 0} },
 
 						/*				                      ROW 4				                    */
-						{ MODKEY, XK_z,		        incrgaps,	      {.i = +3 } },
-						/* { MODKEY|ShiftMask,		          XK_z,		        spawn,		      SHCMD("") }, */
-						{ MODKEY, XK_x,		incrgaps,	{.i = -3 } },
-						/* { MODKEY|ShiftMask,		          XK_x,		        spawn,		      SHCMD("") }, */
+						{ MODKEY, XK_z,		              incrgaps,	      {.i = +3 } },
+						/* { MODKEY|ShiftMask, XK_z,        spawn,		      SHCMD("") }, */
+						{ MODKEY, XK_x,		              incrgaps,	      {.i = -3 } },
+						/* { MODKEY|ShiftMask, XK_x,		        spawn,		      SHCMD("") }, */
 						/* { MODKEY, XK_c,		        spawn,		      SHCMD("") }, */
 						/* { MODKEY|ShiftMask,		          XK_c,		        spawn,		      SHCMD("") }, */
 						{ MODKEY, XK_v,		        togglefullscr,  {0} },
