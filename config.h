@@ -204,10 +204,10 @@ static Key keys[] = {
             { MODKEY|ShiftMask, XK_d,       spawn,          SHCMD("passmenu") },
             /*          F is automatically bound above in STACKKEYS         */
             { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} },
-            { MODKEY, XK_g,		              setmfact,       {.f = -0.05} },
-            /* { MODKEY, XK_g,		              shiftview,      { .i = -1 } }, */
-            /* { MODKEY|ShiftMask, XK_g,	      shifttag,       { .i = -1 } }, */
-            /* { MODKEY, XK_h,		              setmfact,       {.f = -0.05} }, */
+            { MODKEY, XK_g,                 setmfact,       {.f = -0.05} },
+            /* { MODKEY, XK_g,                 shiftview,      { .i = -1 } }, */
+            /* { MODKEY|ShiftMask, XK_g,       shifttag,       { .i = -1 } }, */
+            /* { MODKEY, XK_h,                 setmfact,       {.f = -0.05} }, */
             { MODKEY, XK_h,                 shiftview,      { .i = -1 } },
             { MODKEY|ShiftMask, XK_h,       shifttag,       { .i = -1 } },
             /*       J and K are automatically bound above in STACKEYS      */
@@ -225,7 +225,7 @@ static Key keys[] = {
             /*                              ROW 4                           */
             { MODKEY, XK_z,                 incrgaps,       {.i = +3 } },
             /* { MODKEY|ShiftMask, XK_z,       spawn,          SHCMD("") }, */
-            { MODKEY, XK_x,		              incrgaps,	      {.i = -3 } },
+            { MODKEY, XK_x,                 incrgaps,       {.i = -3 } },
             /* { MODKEY|ShiftMask, XK_x,       spawn,          SHCMD("") }, */
             /* { MODKEY, XK_c,                 spawn,          SHCMD("") }, */
             /* { MODKEY|ShiftMask, XK_c,       spawn,          SHCMD("") }, */
@@ -299,7 +299,7 @@ static Key keys[] = {
             /* { MEHKEY|MODKEY, XK_9,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_0,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_0,          spawn,          SHCMD("") }, */
-            /* { MEHKEY, XK_minus,	           spawn,          SHCMD("") }, */
+            /* { MEHKEY, XK_minus,             spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_minus,      spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_equal,             spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_equal,      spawn,          SHCMD("") }, */
@@ -399,15 +399,15 @@ static Key keys[] = {
             { 0, XF86XK_TaskPane,           spawn,          SHCMD(TERMINAL " -e htop") },
             { 0, XF86XK_Mail,               spawn,          SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") },
             { 0, XF86XK_MyComputer,         spawn,          SHCMD(TERMINAL " -e lf /") },
-            /* { 0, XF86XK_Battery,            spawn,		      SHCMD("") }, */
-            { 0, XF86XK_Launch1,            spawn,		      SHCMD("xset dpms force off") },
-            { 0, XF86XK_TouchpadToggle,     spawn,		      SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
-            { 0, XF86XK_TouchpadOff,        spawn,		      SHCMD("synclient TouchpadOff=1") },
-            { 0, XF86XK_TouchpadOn,         spawn,		      SHCMD("synclient TouchpadOff=0") },
-            { 0, XF86XK_MonBrightnessUp,    spawn,		      SHCMD("xbacklight -inc 10") },
-            { 0, XF86XK_MonBrightnessDown,  spawn,		      SHCMD("xbacklight -dec 10") },
-            /* { 0, XF86XK_MonBrightnessUp,    spawn,		      SHCMD("light -A 5") }, */
-            /* { 0, XF86XK_MonBrightnessDown,  spawn,		      SHCMD("light -U 5") }, */
+            /* { 0, XF86XK_Battery,            spawn,          SHCMD("") }, */
+            { 0, XF86XK_Launch1,            spawn,          SHCMD("xset dpms force off") },
+            { 0, XF86XK_TouchpadToggle,     spawn,          SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
+            { 0, XF86XK_TouchpadOff,        spawn,          SHCMD("synclient TouchpadOff=1") },
+            { 0, XF86XK_TouchpadOn,         spawn,          SHCMD("synclient TouchpadOff=0") },
+            { 0, XF86XK_MonBrightnessUp,    spawn,          SHCMD("xbacklight -inc 10") },
+            { 0, XF86XK_MonBrightnessDown,  spawn,          SHCMD("xbacklight -dec 10") },
+            /* { 0, XF86XK_MonBrightnessUp,    spawn,          SHCMD("light -A 5") }, */
+            /* { 0, XF86XK_MonBrightnessDown,  spawn,          SHCMD("light -U 5") }, */
 
             /* { MODKEY|Mod4Mask,              XK_h, incrgaps,     {.i = +1 } }, */
             /* { MODKEY|Mod4Mask,              XK_l, incrgaps,     {.i = -1 } }, */
@@ -432,26 +432,26 @@ static Key keys[] = {
 static Button buttons[] = {
             /* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
-						{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-						{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-						{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-						{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-						{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
-						{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
-						{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+            { ClkWinTitle,          0,              Button2,        zoom,           {0} },
+            { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
+            { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
+            { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
+            { ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
+            { ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
+            { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
 #endif
-						{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h") },
-						{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-						{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,    {0} },
-						{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-						{ ClkClientWin,         MODKEY,         Button4,        incrgaps,       {.i = +1} },
-						{ ClkClientWin,         MODKEY,         Button5,        incrgaps,       {.i = -1} },
-						{ ClkTagBar,            0,              Button1,        view,           {0} },
-						{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-						{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-						{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-						{ ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
-						{ ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
-						{ ClkRootWin,           0,              Button2,        togglebar,      {0} },
+            { ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h") },
+            { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+            { ClkClientWin,         MODKEY,         Button2,        defaultgaps,    {0} },
+            { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+            { ClkClientWin,         MODKEY,         Button4,        incrgaps,       {.i = +1} },
+            { ClkClientWin,         MODKEY,         Button5,        incrgaps,       {.i = -1} },
+            { ClkTagBar,            0,              Button1,        view,           {0} },
+            { ClkTagBar,            0,              Button3,        toggleview,     {0} },
+            { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+            { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+            { ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
+            { ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
+            { ClkRootWin,           0,              Button2,        togglebar,      {0} },
 };
 
