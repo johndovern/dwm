@@ -285,7 +285,7 @@ static Key keys[] = {
             /* { MEHKEY, XK_3,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_3,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_4,                 spawn,          SHCMD("") }, */
-            { MEHKEY, XK_4,		              spawn,		      SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
+            { MEHKEY, XK_4,                 spawn,          SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
             /* { MEHKEY|MODKEY, XK_4,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_5,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_5,          spawn,          SHCMD("") }, */
@@ -332,7 +332,7 @@ static Key keys[] = {
             { MEHKEY, XK_a,                 spawn,          SHCMD(TERMINAL " -n anime_lf -e lfrun ~/videos/anime/") },
             /* { MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") }, */
             { MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300") },
-            { MEHKEY|MODKEY, XK_s,          spawn,          SHCMD("mpv-options sticky") },
+            { MEHKEY|MODKEY,  XK_s,         spawn,          SHCMD("mpv-options sticky") },
             { MEHKEY, XK_d,                 spawn,          SHCMD("sleep 0.5 && mpv-options float") },
             /* { MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") }, */
             { MEHKEY, XK_f,                 spawn,          SHCMD("mpv-options focus") },
@@ -351,7 +351,7 @@ static Key keys[] = {
             /* { MEHKEY|MODKEY, XK_semicolon,  spawn,	        SHCMD("") }, */
             /* { MEHKEY, XK_apostrophe,        spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_apostrophe, spawn,          SHCMD("") }, */
-            /* { MEHKEY, XK_Return,	          spawn,          SHCMD("") }, */
+            /* { MEHKEY, XK_Return,            spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_Return,     spawn,          SHCMD("") }, */
 
             /*                              ROW 4                           */
@@ -375,62 +375,62 @@ static Key keys[] = {
             /* { MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") }, */
             { MEHKEY, XK_period,            spawn,          SHCMD("mpv-next-song") },
             /* { MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") }, */
-            { MEHKEY,				                    XK_Print,	      spawn,		      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+            { MEHKEY, XK_Print,             spawn,          SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
 
-            /*				                      XF86 KEYS				                */
-            { 0, XF86XK_AudioMute,	        spawn,		      SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-            { 0, XF86XK_AudioRaiseVolume,	  spawn,		      SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-            { 0, XF86XK_AudioLowerVolume,	  spawn,		      SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
-            { 0, XF86XK_AudioPrev,		      spawn,		      SHCMD("mpc prev") },
-            { 0, XF86XK_AudioNext,		      spawn,		      SHCMD("mpc next") },
-            { 0, XF86XK_AudioPause,		      spawn,		      SHCMD("mpc pause") },
-            { 0, XF86XK_AudioPlay,		      spawn,		      SHCMD("mpc play") },
-            { 0, XF86XK_AudioStop,		      spawn,		      SHCMD("mpc stop") },
-            { 0, XF86XK_AudioRewind,	      spawn,		      SHCMD("mpc seek -10") },
-            { 0, XF86XK_AudioForward,	      spawn,		      SHCMD("mpc seek +10") },
-            { 0, XF86XK_AudioMedia,		      spawn,		      SHCMD(TERMINAL " -e ncmpcpp") },
-            { 0, XF86XK_AudioMicMute,	      spawn,		      SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
-            { 0, XF86XK_PowerOff,		        spawn,		      SHCMD("sysact") },
-            { 0, XF86XK_Calculator,		      spawn,		      SHCMD(TERMINAL " -e bc -l") },
-            { 0, XF86XK_Sleep,		          spawn,		      SHCMD("sudo -A zzz") },
-            { 0, XF86XK_WWW,		            spawn,		      SHCMD("$BROWSER") },
-            { 0, XF86XK_DOS,		            spawn,		      SHCMD(TERMINAL) },
-            { 0, XF86XK_ScreenSaver,	      spawn,		      SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") },
-            { 0, XF86XK_TaskPane,		        spawn,		      SHCMD(TERMINAL " -e htop") },
-            { 0, XF86XK_Mail,		            spawn,		      SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") },
-            { 0, XF86XK_MyComputer,		      spawn,		      SHCMD(TERMINAL " -e lf /") },
-            /* { 0, XF86XK_Battery,		        spawn,		      SHCMD("") }, */
-            { 0, XF86XK_Launch1,		        spawn,		      SHCMD("xset dpms force off") },
-            { 0, XF86XK_TouchpadToggle,	    spawn,		      SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
-            { 0, XF86XK_TouchpadOff,	      spawn,		      SHCMD("synclient TouchpadOff=1") },
-            { 0, XF86XK_TouchpadOn,		      spawn,		      SHCMD("synclient TouchpadOff=0") },
-            { 0, XF86XK_MonBrightnessUp,	  spawn,		      SHCMD("xbacklight -inc 10") },
-            { 0, XF86XK_MonBrightnessDown,	spawn,		      SHCMD("xbacklight -dec 10") },
-            /* { 0, XF86XK_MonBrightnessUp,	  spawn,		      SHCMD("light -A 5") }, */
-            /* { 0, XF86XK_MonBrightnessDown,	spawn,		      SHCMD("light -U 5") }, */
+            /*                              XF86 KEYS                       */
+            { 0, XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+            { 0, XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
+            { 0, XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+            { 0, XF86XK_AudioPrev,          spawn,          SHCMD("mpc prev") },
+            { 0, XF86XK_AudioNext,          spawn,          SHCMD("mpc next") },
+            { 0, XF86XK_AudioPause,         spawn,          SHCMD("mpc pause") },
+            { 0, XF86XK_AudioPlay,          spawn,          SHCMD("mpc play") },
+            { 0, XF86XK_AudioStop,          spawn,          SHCMD("mpc stop") },
+            { 0, XF86XK_AudioRewind,        spawn,          SHCMD("mpc seek -10") },
+            { 0, XF86XK_AudioForward,       spawn,          SHCMD("mpc seek +10") },
+            { 0, XF86XK_AudioMedia,         spawn,          SHCMD(TERMINAL " -e ncmpcpp") },
+            { 0, XF86XK_AudioMicMute,       spawn,          SHCMD("pactl set-source-mute @DEFAULT_SOURCE@ toggle") },
+            { 0, XF86XK_PowerOff,           spawn,          SHCMD("sysact") },
+            { 0, XF86XK_Calculator,         spawn,          SHCMD(TERMINAL " -e bc -l") },
+            { 0, XF86XK_Sleep,              spawn,          SHCMD("sudo -A zzz") },
+            { 0, XF86XK_WWW,                spawn,          SHCMD("$BROWSER") },
+            { 0, XF86XK_DOS,                spawn,          SHCMD(TERMINAL) },
+            { 0, XF86XK_ScreenSaver,        spawn,          SHCMD("slock & xset dpms force off; mpc pause; pauseallmpv") },
+            { 0, XF86XK_TaskPane,           spawn,          SHCMD(TERMINAL " -e htop") },
+            { 0, XF86XK_Mail,               spawn,          SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") },
+            { 0, XF86XK_MyComputer,         spawn,          SHCMD(TERMINAL " -e lf /") },
+            /* { 0, XF86XK_Battery,            spawn,		      SHCMD("") }, */
+            { 0, XF86XK_Launch1,            spawn,		      SHCMD("xset dpms force off") },
+            { 0, XF86XK_TouchpadToggle,     spawn,		      SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
+            { 0, XF86XK_TouchpadOff,        spawn,		      SHCMD("synclient TouchpadOff=1") },
+            { 0, XF86XK_TouchpadOn,         spawn,		      SHCMD("synclient TouchpadOff=0") },
+            { 0, XF86XK_MonBrightnessUp,    spawn,		      SHCMD("xbacklight -inc 10") },
+            { 0, XF86XK_MonBrightnessDown,  spawn,		      SHCMD("xbacklight -dec 10") },
+            /* { 0, XF86XK_MonBrightnessUp,    spawn,		      SHCMD("light -A 5") }, */
+            /* { 0, XF86XK_MonBrightnessDown,  spawn,		      SHCMD("light -U 5") }, */
 
-            /* { MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } }, */
-            /* { MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } }, */
-            /* { MODKEY|Mod4Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } }, */
-            /* { MODKEY|Mod4Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } }, */
-            /* { MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } }, */
-            /* { MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } }, */
-            /* { MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} }, */
-            /* { MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } }, */
-            /* { MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } }, */
-            /* { MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } }, */
-            /* { MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } }, */
-            /* { MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } }, */
-            /* { MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } }, */
-            /* { MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } }, */
-            /* { MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } }, */
+            /* { MODKEY|Mod4Mask,              XK_h, incrgaps,     {.i = +1 } }, */
+            /* { MODKEY|Mod4Mask,              XK_l, incrgaps,     {.i = -1 } }, */
+            /* { MODKEY|Mod4Mask|ShiftMask,    XK_h, incrogaps,    {.i = +1 } }, */
+            /* { MODKEY|Mod4Mask|ShiftMask,    XK_l, incrogaps,    {.i = -1 } }, */
+            /* { MODKEY|Mod4Mask|ControlMask,  XK_h, incrigaps,    {.i = +1 } }, */
+            /* { MODKEY|Mod4Mask|ControlMask,  XK_l, incrigaps,    {.i = -1 } }, */
+            /* { MODKEY|Mod4Mask|ShiftMask,    XK_0, defaultgaps,  {0} }, */
+            /* { MODKEY,                       XK_y, incrihgaps,   {.i = +1 } }, */
+            /* { MODKEY,                       XK_o, incrihgaps,   {.i = -1 } }, */
+            /* { MODKEY|ControlMask,           XK_y, incrivgaps,   {.i = +1 } }, */
+            /* { MODKEY|ControlMask,           XK_o, incrivgaps,   {.i = -1 } }, */
+            /* { MODKEY|Mod4Mask,              XK_y, incrohgaps,   {.i = +1 } }, */
+            /* { MODKEY|Mod4Mask,              XK_o, incrohgaps,   {.i = -1 } }, */
+            /* { MODKEY|ShiftMask,             XK_y, incrovgaps,   {.i = +1 } }, */
+            /* { MODKEY|ShiftMask,             XK_o, incrovgaps,   {.i = -1 } }, */
 
 };
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
-						/* click                event mask      button          function        argument */
+            /* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
 						{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 						{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
@@ -442,16 +442,16 @@ static Button buttons[] = {
 #endif
 						{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h") },
 						{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-						{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,	{0} },
+						{ ClkClientWin,         MODKEY,         Button2,        defaultgaps,    {0} },
 						{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-						{ ClkClientWin,		MODKEY,		Button4,	incrgaps,	{.i = +1} },
-						{ ClkClientWin,		MODKEY,		Button5,	incrgaps,	{.i = -1} },
+						{ ClkClientWin,         MODKEY,         Button4,        incrgaps,       {.i = +1} },
+						{ ClkClientWin,         MODKEY,         Button5,        incrgaps,       {.i = -1} },
 						{ ClkTagBar,            0,              Button1,        view,           {0} },
 						{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 						{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 						{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-						{ ClkTagBar,		0,		Button4,	shiftview,	{.i = -1} },
-						{ ClkTagBar,		0,		Button5,	shiftview,	{.i = 1} },
-						{ ClkRootWin,		0,		Button2,	togglebar,	{0} },
+						{ ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
+						{ ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
+						{ ClkRootWin,           0,              Button2,        togglebar,      {0} },
 };
 
