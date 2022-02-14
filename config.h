@@ -138,7 +138,7 @@ ResourcePref resources[] = {
 #include "shiftview.c"
 
 static Key keys[] = {
-            /* modifier key                 function        argument */
+            /* modifier     key             function        argument */
             /*                              ROW 1                           */
             STACKKEYS(MODKEY,               focus)
             STACKKEYS(MODKEY|ShiftMask,     push)
@@ -208,72 +208,72 @@ static Key keys[] = {
             /* { MODKEY, XK_g,		              shiftview,      { .i = -1 } }, */
             /* { MODKEY|ShiftMask, XK_g,	      shifttag,       { .i = -1 } }, */
             /* { MODKEY, XK_h,		              setmfact,       {.f = -0.05} }, */
-            { MODKEY, XK_h,		              shiftview,      { .i = -1 } },
-            { MODKEY|ShiftMask, XK_h,		    shifttag,       { .i = -1 } },
+            { MODKEY, XK_h,                 shiftview,      { .i = -1 } },
+            { MODKEY|ShiftMask, XK_h,       shifttag,       { .i = -1 } },
             /*       J and K are automatically bound above in STACKEYS      */
             { MODKEY, XK_l,                 shiftview,      { .i = 1 } },
             { MODKEY|ShiftMask, XK_l,       shifttag,       { .i = 1 } },
-            /* { MODKEY, XK_l,                  setmfact,      	{.f = +0.05} }, */
-            /* { MODKEY, XK_semicolon,          shiftview,      { .i = 1 } }, */
-            /* { MODKEY|ShiftMask, XK_semicolon, shifttag,      { .i = 1 } }, */
-            { MODKEY, XK_semicolon,         setmfact,      	{.f = +0.05} },
-            { MODKEY, XK_apostrophe,	      togglescratch,	{.ui = 1} },
-            /* { MODKEY|ShiftMask, XK_apostrophe,	spawn,		    SHCMD("") }, */
-            { MODKEY, XK_Return,	          spawn,		      {.v = termcmd } },
-            { MODKEY|ShiftMask, XK_Return,  togglescratch,	{.ui = 0} },
+            /* { MODKEY, XK_l,                 setmfact,       {.f = +0.05} }, */
+            /* { MODKEY, XK_semicolon,         shiftview,      { .i = 1 } }, */
+            /* { MODKEY|ShiftMask, XK_semicolon, shifttag,     { .i = 1 } }, */
+            { MODKEY, XK_semicolon,         setmfact,       {.f = +0.05} },
+            { MODKEY, XK_apostrophe,        togglescratch,  {.ui = 1} },
+            /* { MODKEY|ShiftMask, XK_apostrophe,  spawn,      SHCMD("") }, */
+            { MODKEY, XK_Return,            spawn,          {.v = termcmd } },
+            { MODKEY|ShiftMask, XK_Return,  togglescratch,  {.ui = 0} },
 
-            /*				                      ROW 4				                    */
-            { MODKEY, XK_z,		              incrgaps,	      {.i = +3 } },
-            /* { MODKEY|ShiftMask, XK_z,        spawn,		      SHCMD("") }, */
+            /*                              ROW 4                           */
+            { MODKEY, XK_z,                 incrgaps,       {.i = +3 } },
+            /* { MODKEY|ShiftMask, XK_z,       spawn,          SHCMD("") }, */
             { MODKEY, XK_x,		              incrgaps,	      {.i = -3 } },
-            /* { MODKEY|ShiftMask, XK_x,        spawn,		      SHCMD("") }, */
-            /* { MODKEY, XK_c,		              spawn,		      SHCMD("") }, */
-            /* { MODKEY|ShiftMask, XK_c,        spawn,		      SHCMD("") }, */
-            { MODKEY, XK_v,		              togglefullscr,  {0} },
-            /* { MODKEY|ShiftMask, XK_v,		    spawn,		      SHCMD("") }, */
-            { MODKEY, XK_b,		              togglebar,	    {0} },
-            /* { MODKEY|ShiftMask, XK_b,		    spawn,		      SHCMD("") }, */
-            { MODKEY, XK_n,		              spawn,		      SHCMD(TERMINAL " -e nvim -c VimwikiIndex") },
-            { MODKEY|ShiftMask, XK_n,		    spawn,		      SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
-            { MODKEY, XK_m,		              spawn,		      SHCMD(TERMINAL " -e ncmpcpp") },
-            { MODKEY|ShiftMask, XK_m,		    spawn,		      SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-            { MODKEY, XK_comma,	            spawn,		      SHCMD("mpc prev") },
-            { MODKEY|ShiftMask, XK_comma,	  spawn,		      SHCMD("mpc seek 0%") },
-            { MODKEY, XK_period,	          spawn,		      SHCMD("mpc next") },
-            { MODKEY|ShiftMask,	XK_period,	spawn,		      SHCMD("mpc repeat") },
+            /* { MODKEY|ShiftMask, XK_x,       spawn,          SHCMD("") }, */
+            /* { MODKEY, XK_c,                 spawn,          SHCMD("") }, */
+            /* { MODKEY|ShiftMask, XK_c,       spawn,          SHCMD("") }, */
+            { MODKEY, XK_v,                 togglefullscr,  {0} },
+            /* { MODKEY|ShiftMask, XK_v,       spawn,          SHCMD("") }, */
+            { MODKEY, XK_b,                 togglebar,      {0} },
+            /* { MODKEY|ShiftMask, XK_b,       spawn,          SHCMD("") }, */
+            { MODKEY, XK_n,                 spawn,          SHCMD(TERMINAL " -e nvim -c VimwikiIndex") },
+            { MODKEY|ShiftMask, XK_n,       spawn,          SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks") },
+            { MODKEY, XK_m,                 spawn,          SHCMD(TERMINAL " -e ncmpcpp") },
+            { MODKEY|ShiftMask, XK_m,       spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+            { MODKEY, XK_comma,             spawn,          SHCMD("mpc prev") },
+            { MODKEY|ShiftMask, XK_comma,   spawn,          SHCMD("mpc seek 0%") },
+            { MODKEY, XK_period,            spawn,          SHCMD("mpc next") },
+            { MODKEY|ShiftMask, XK_period,  spawn,          SHCMD("mpc repeat") },
 
-            { MODKEY, XK_Left,	            focusmon,	      {.i = -1 } },
-            { MODKEY|ShiftMask, XK_Left,	  tagmon,		      {.i = -1 } },
-            { MODKEY, XK_Right,	            focusmon,	      {.i = +1 } },
-            { MODKEY|ShiftMask,	XK_Right,	  tagmon,		      {.i = +1 } },
+            { MODKEY, XK_Left,              focusmon,       {.i = -1 } },
+            { MODKEY|ShiftMask, XK_Left,    tagmon,         {.i = -1 } },
+            { MODKEY, XK_Right,             focusmon,       {.i = +1 } },
+            { MODKEY|ShiftMask, XK_Right,   tagmon,         {.i = +1 } },
 
-            { MODKEY, XK_Page_Up,	          shiftview,      { .i = -1 } },
-            { MODKEY|ShiftMask, XK_Page_Up,	shifttag,       { .i = -1 } },
-            { MODKEY, XK_Page_Down,	        shiftview,      { .i = +1 } },
-            { MODKEY|ShiftMask,	XK_Page_Down, shifttag,     { .i = +1 } },
-            { MODKEY, XK_Insert,	          spawn,          SHCMD("xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)") },
+            { MODKEY, XK_Page_Up,           shiftview,      { .i = -1 } },
+            { MODKEY|ShiftMask, XK_Page_Up, shifttag,       { .i = -1 } },
+            { MODKEY, XK_Page_Down,         shiftview,      { .i = +1 } },
+            { MODKEY|ShiftMask, XK_Page_Down, shifttag,     { .i = +1 } },
+            { MODKEY, XK_Insert,            spawn,          SHCMD("xdotool type $(grep -v '^#' ~/.local/share/larbs/snippets | dmenu -i -l 50 | cut -d' ' -f1)") },
 
-            { MODKEY, XK_F1,                spawn,		      SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") },
-            { MODKEY, XK_F2,		            spawn,		      SHCMD("tutorialvids") },
-            { MODKEY, XK_F3,		            spawn,		      SHCMD("displayselect") },
-            { MODKEY, XK_F4,		            spawn,		      SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
-            /* { MODKEY, XK_F5,		              spawn,		        SHCMD(""), */
-            { MODKEY, XK_F6,		            spawn,		      SHCMD("torwrap") },
-            { MODKEY, XK_F7,		            spawn,		      SHCMD("td-toggle") },
-            { MODKEY, XK_F8,		            spawn,		      SHCMD("mw -Y") },
-            { MODKEY, XK_F9,		            spawn,		      SHCMD("dmenumount") },
-            { MODKEY, XK_F10,		            spawn,		      SHCMD("dmenuumount") },
-            { MODKEY, XK_F11,		            spawn,		      SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
-            { MODKEY, XK_F12,		            spawn,		      SHCMD("remaps & notify-send \\\"⌨️ Keyboard remapping...\\\" \\\"Re-running keyboard defaults for any newly plugged-in keyboards.\\\"") },
-            { MODKEY, XK_space,	            zoom,		        {0} },
-            { MODKEY|ShiftMask, XK_space,	  togglefloating,	{0} },
+            { MODKEY, XK_F1,                spawn,          SHCMD("groff -mom /usr/local/share/dwm/larbs.mom -Tpdf | zathura -") },
+            { MODKEY, XK_F2,                spawn,          SHCMD("tutorialvids") },
+            { MODKEY, XK_F3,                spawn,          SHCMD("displayselect") },
+            { MODKEY, XK_F4,                spawn,          SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
+            /* { MODKEY, XK_F5,                spawn,          SHCMD(""), */
+            { MODKEY, XK_F6,                spawn,          SHCMD("torwrap") },
+            { MODKEY, XK_F7,                spawn,          SHCMD("td-toggle") },
+            { MODKEY, XK_F8,                spawn,          SHCMD("mw -Y") },
+            { MODKEY, XK_F9,                spawn,          SHCMD("dmenumount") },
+            { MODKEY, XK_F10,               spawn,          SHCMD("dmenuumount") },
+            { MODKEY, XK_F11,               spawn,          SHCMD("mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
+            { MODKEY, XK_F12,               spawn,          SHCMD("remaps & notify-send \\\"⌨️ Keyboard remapping...\\\" \\\"Re-running keyboard defaults for any newly plugged-in keyboards.\\\"") },
+            { MODKEY, XK_space,             zoom,           {0} },
+            { MODKEY|ShiftMask, XK_space,   togglefloating, {0} },
 
-            { 0,	XK_Print,	                spawn,		      SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
-            { ShiftMask, XK_Print,	        spawn,		      SHCMD("maimpick") },
-            { MODKEY, XK_Print,	            spawn,		      SHCMD("dmenurecord") },
-            { MODKEY|ShiftMask, XK_Print,	  spawn,		      SHCMD("dmenurecord kill") },
-            { MODKEY, XK_Delete,	          spawn,		      SHCMD("dmenurecord kill") },
-            { MODKEY, XK_Scroll_Lock,	      spawn,		      SHCMD("killall screenkey || screenkey &") },
+            { 0,  XK_Print,                 spawn,          SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+            { ShiftMask,  XK_Print,         spawn,          SHCMD("maimpick") },
+            { MODKEY, XK_Print,             spawn,          SHCMD("dmenurecord") },
+            { MODKEY|ShiftMask, XK_Print,   spawn,          SHCMD("dmenurecord kill") },
+            { MODKEY, XK_Delete,            spawn,          SHCMD("dmenurecord kill") },
+            { MODKEY, XK_Scroll_Lock,       spawn,          SHCMD("killall screenkey || screenkey &") },
 
             /*                              MY KEYS                         */
 
