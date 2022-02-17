@@ -17,7 +17,7 @@ static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
             "monospace:size=13:antialias=true:autohint=true",
-            "JoyPixels:pixelsize=14:antialias=true:autohint=true"
+            "JoyPixels:pixelsize=16:antialias=true:autohint=true"
 };
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
@@ -181,8 +181,8 @@ static Key keys[] = {
             { MODKEY, XK_y,                 setlayout,      {.v = &layouts[0]} }, /* spiral */
             { MODKEY|ShiftMask, XK_y,       setlayout,      {.v = &layouts[3]} }, /* dwindle */
             { MODKEY, XK_u,                 setlayout,      {.v = &layouts[4]} }, /* deck */
-            { MODKEY|ShiftMask, XK_u,       setlayout,      {.v = &layouts[6]} }, /* monocle */
-            { MODKEY, XK_i,                 setlayout,      {.v = &layouts[5]} }, /* centeredmaster */
+            { MODKEY|ShiftMask, XK_u,       setlayout,      {.v = &layouts[6]} }, /* centeredmaster */
+            { MODKEY, XK_i,                 setlayout,      {.v = &layouts[5]} }, /* monocle */
             { MODKEY|ShiftMask, XK_i,       setlayout,      {.v = &layouts[7]} }, /* centeredfloatingmaster */
             { MODKEY, XK_o,                 incnmaster,     {.i = +1 } },
             { MODKEY|ShiftMask, XK_o,       incnmaster,     {.i = -1 } },
@@ -432,7 +432,9 @@ static Key keys[] = {
 static Button buttons[] = {
             /* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
-            { ClkWinTitle,          0,              Button2,        zoom,           {0} },
+            { ClkWinTitle,          0,              Button3,        zoom,           {0} },
+            { ClkWinTitle,          0,              Button4,        spawn,          SHCMD("xdotool key 'super+k'") },
+            { ClkWinTitle,          0,              Button5,        spawn,          SHCMD("xdotool key 'super+j'") },
             { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
             { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
             { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
@@ -453,5 +455,7 @@ static Button buttons[] = {
             { ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
             { ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
             { ClkRootWin,           0,              Button2,        togglebar,      {0} },
+            { ClkLtSymbol,          0,              Button1,        setlayout,      {.v = &layouts[0]} }, /* spiral */
+            { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[5]} }, /* monocle */
 };
 
