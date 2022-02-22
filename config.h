@@ -17,6 +17,7 @@ static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
             "monospace:size=13:antialias=true:autohint=true",
+            "M+ 1c:pixelsize=20:antialias=true:autohint=true",
             "JoyPixels:pixelsize=16:antialias=true:autohint=true"
 };
 static char normbgcolor[]           = "#212121";
@@ -58,6 +59,7 @@ static const Rule rules[] = {
             { NULL,                 "spterm",   NULL,             SPTAG(0),     1,          1,          0,        -1 },
             { NULL,                 "spcalc",   NULL,             SPTAG(1),     1,          1,          0,        -1 },
             { "Lutris",             NULL,       NULL,             1 << 2,       0,          0,          0,        -1 },
+            { TERMCLASS,            "anime_lf", NULL,             1 << 2,       0,          1,          0,        -1 },
             { "fate.exe",           NULL,       NULL,             1 << 3,       1,          0,          0,        -1 },
             { "Transmission-gtk",   NULL,       NULL,             1 << 4,       0,          0,          0,        -1 },
             { "kdenlive",           NULL,       NULL,             1 << 6,       0,          0,          0,        -1 },
@@ -311,7 +313,7 @@ static Key keys[] = {
             /* { MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("") }, */
             { MEHKEY, XK_w,                 spawn,          SHCMD("aniwiki") },
             /* { MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_e,                 spawn,          SHCMD("mpv-options full") },
+            { MEHKEY, XK_e,                 spawn,          SHCMD("mpv-options focus") },
             /* { MEHKEY|MODKEY, XK_e,          spawn,          SHCMD("") }, */
             { MEHKEY, XK_r,                 spawn,          SHCMD("dautoupdate") },
             /* { MEHKEY|MODKEY, XK_r,          spawn,          SHCMD("") }, */
@@ -335,7 +337,7 @@ static Key keys[] = {
             { MEHKEY|MODKEY,  XK_s,         spawn,          SHCMD("mpv-options sticky") },
             { MEHKEY, XK_d,                 spawn,          SHCMD("sleep 0.5 && mpv-options float") },
             /* { MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_f,                 spawn,          SHCMD("mpv-options focus") },
+            { MEHKEY, XK_f,                 spawn,          SHCMD("mpv-options full") },
             /* { MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") }, */
             { MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
             /* { MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") }, */
