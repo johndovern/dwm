@@ -16,7 +16,7 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
-            "monospace:size=13:antialias=true:autohint=true",
+            "monospace:size=12:antialias=true:autohint=true",
             "M+ 1c:pixelsize=20:antialias=true:autohint=true",
             "JoyPixels:pixelsize=16:antialias=true:autohint=true"
 };
@@ -62,8 +62,10 @@ static const Rule rules[] = {
             { TERMCLASS,            "anime_lf", NULL,             1 << 2,       0,          1,          0,        -1 },
             { "fate.exe",           NULL,       NULL,             1 << 3,       1,          0,          0,        -1 },
             { "Transmission-gtk",   NULL,       NULL,             1 << 4,       0,          0,          0,        -1 },
+            { TERMCLASS,            "aniwiki",  NULL,             1 << 4,       0,          1,          0,        -1 },
             { "kdenlive",           NULL,       NULL,             1 << 6,       0,          0,          0,        -1 },
             { "KeePassXC",          NULL,       "KeePassXC",      1 << 8,       0,          0,          0,        -1 },
+            { TERMCLASS,            "keepass",  NULL,             1 << 8,       0,          1,          0,        -1 },
             { "Gimp",               NULL,       NULL,             1 << 8,       0,          0,          0,        -1 },
             { "mpv",                "fmpv",     NULL,             0,            1,          0,          0,        -1 },
 };
@@ -95,7 +97,10 @@ static const Layout layouts[] = {
             { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
             { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
             { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-            { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+            { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} }, \
+            { MEHKEY,                       KEY,      focusnthmon,    {.i  = TAG } }, \
+            { MEHKEY|MODKEY,                KEY,      tagnthmon,      {.i  = TAG } },
+
 #define STACKKEYS(MOD,ACTION) \
             { MOD,    XK_j,     ACTION##stack,    {.i = INC(+1) } }, \
             { MOD,    XK_k,     ACTION##stack,    {.i = INC(-1) } }, \
@@ -287,7 +292,7 @@ static Key keys[] = {
             /* { MEHKEY, XK_3,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_3,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_4,                 spawn,          SHCMD("") }, */
-            { MEHKEY, XK_4,                 spawn,          SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
+            /* { MEHKEY, XK_4,                 spawn,          SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") }, */
             /* { MEHKEY|MODKEY, XK_4,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_5,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_5,          spawn,          SHCMD("") }, */
@@ -309,48 +314,48 @@ static Key keys[] = {
             /* { MEHKEY|MODKEY, XK_BackSpace,  spawn,          SHCMD("") }, */
 
             /*                              ROW 2                           */
-            { MEHKEY, XK_q,                 spawn,          SHCMD("mpv-options quit") },
-            /* { MEHKEY|MODKEY, XK_q,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_w,                 spawn,          SHCMD("aniwiki") },
+            /* { MEHKEY, XK_q,                 spawn,          SHCMD("mpv-options quit") }, */
+            { MEHKEY|MODKEY, XK_q,          spawn,          SHCMD(TERMINAL " -n keepass -e keepasshide ; sleep 1.5 ;st -e total-shutdown") },
+            /* { MEHKEY, XK_w,                 spawn,          SHCMD("aniwiki") }, */
             /* { MEHKEY|MODKEY, XK_w,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_e,                 spawn,          SHCMD("mpv-options focus") },
+            /* { MEHKEY, XK_e,                 spawn,          SHCMD("mpv-options focus") }, */
             /* { MEHKEY|MODKEY, XK_e,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_r,                 spawn,          SHCMD("dautoupdate") },
+            /* { MEHKEY, XK_r,                 spawn,          SHCMD("dautoupdate") }, */
             /* { MEHKEY|MODKEY, XK_r,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_t,                 spawn,          SHCMD(TERMINAL " -e nvim -c VimwikiIndex -c 'VimwikiGoto temp-notes'") },
+            /* { MEHKEY, XK_t,                 spawn,          SHCMD(TERMINAL " -e nvim -c VimwikiIndex -c 'VimwikiGoto temp-notes'") }, */
             /* { MEHKEY|MODKEY, XK_t,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_y,                 spawn,          SHCMD("transmission-gtk") },
+            /* { MEHKEY, XK_y,                 spawn,          SHCMD("transmission-gtk") }, */
             /* { MEHKEY|MODKEY, XK_y,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_u,                 spawn,          SHCMD("librewolf") },
+            /* { MEHKEY, XK_u,                 spawn,          SHCMD("librewolf") }, */
             /* { MEHKEY|MODKEY, XK_u,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_i,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_i,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") },
+            /* { MEHKEY, XK_o,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groovy.m3u") }, */
             /* { MEHKEY|MODKEY, XK_o,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_p,                 spawn,          SHCMD("mpv-play-pause") },
+            /* { MEHKEY, XK_p,                 spawn,          SHCMD("mpv-play-pause") }, */
             /* { MEHKEY|MODKEY, XK_p,          spawn,          SHCMD("") }, */
 
             /*                              ROW 3                           */
-            { MEHKEY, XK_a,                 spawn,          SHCMD(TERMINAL " -n anime_lf -e lfrun ~/videos/anime/") },
+            /* { MEHKEY, XK_a,                 spawn,          SHCMD(TERMINAL " -n anime_lf -e lfrun ~/videos/anime/") }, */
             /* { MEHKEY|MODKEY, XK_a,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300") },
-            { MEHKEY|MODKEY,  XK_s,         spawn,          SHCMD("mpv-options sticky") },
-            { MEHKEY, XK_d,                 spawn,          SHCMD("sleep 0.5 && mpv-options float") },
+            /* { MEHKEY, XK_s,                 spawn,          SHCMD("maim -s ~/screenshot-$(date '+%y%m%d-%H%M-%S').png && xdotool mousemove --sync 0 300") }, */
+            /* { MEHKEY|MODKEY,  XK_s,         spawn,          SHCMD("mpv-options sticky") }, */
+            /* { MEHKEY, XK_d,                 spawn,          SHCMD("sleep 0.5 && mpv-options float") }, */
             /* { MEHKEY|MODKEY, XK_d,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_f,                 spawn,          SHCMD("mpv-options full") },
+            /* { MEHKEY, XK_f,                 spawn,          SHCMD("mpv-options full") }, */
             /* { MEHKEY|MODKEY, XK_f,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") },
+            /* { MEHKEY, XK_g,                 spawn,          SHCMD("mpv $HOME/.config/mpv/playlists/groove.m3u") }, */
             /* { MEHKEY|MODKEY, XK_g,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_h,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300") },
+            /* { MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300") }, */
             /* { MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_k,                 spawn,          SHCMD("keepasshide") },
+            { MEHKEY, XK_k,                 spawn,          SHCMD(TERMINAL " -n keepass -e keepasshide") },
             /* { MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_l,                 spawn,          SHCMD("killall keepassxc") },
+            /* { MEHKEY, XK_l,                 spawn,          SHCMD("killall keepassxc") }, */
             /* { MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_semicolon,         spawn,          SHCMD("") }, */
-            /* { MEHKEY|MODKEY, XK_semicolon,  spawn,	        SHCMD("") }, */
+            /* { MEHKEY|MODKEY, XK_semicolon,  spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_apostrophe,        spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_apostrophe, spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_Return,            spawn,          SHCMD("") }, */
@@ -359,25 +364,25 @@ static Key keys[] = {
             /*                              ROW 4                           */
             /* { MEHKEY, XK_z,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_z,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_x,                 spawn,          SHCMD("remaps") },
+            /* { MEHKEY, XK_x,                 spawn,          SHCMD("remaps") }, */
             /* { MEHKEY|MODKEY, XK_x,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_c,                 spawn,          SHCMD("dmenubluetooth reconnect") },
-            { MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("dmenubluetooth turn-on") },
+            /* { MEHKEY, XK_c,                 spawn,          SHCMD("dmenubluetooth reconnect") }, */
+            /* { MEHKEY|MODKEY, XK_c,          spawn,          SHCMD("dmenubluetooth turn-on") }, */
             /* { MEHKEY, XK_v,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_v,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_b,                 spawn,          SHCMD("dmenubluetooth disconnect") },
-            { MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("dmenubluetooth opts") },
-            { MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") },
+            /* { MEHKEY, XK_b,                 spawn,          SHCMD("dmenubluetooth disconnect") }, */
+            /* { MEHKEY|MODKEY, XK_b,          spawn,          SHCMD("dmenubluetooth opts") }, */
+            /* { MEHKEY, XK_space,             spawn,          SHCMD("touchpadtoggle") }, */
             /* { MEHKEY|MODKEY, XK_space,      spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_n,                 spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_n,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_m,                 spawn,          SHCMD(TERMINAL " -n manga_lf -e lfrun ~/documents/manga/") },
+            /* { MEHKEY, XK_m,                 spawn,          SHCMD(TERMINAL " -n manga_lf -e lfrun ~/documents/manga/") }, */
             /* { MEHKEY|MODKEY, XK_m,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_comma,             spawn,          SHCMD("mpv-prev-song") },
+            /* { MEHKEY, XK_comma,             spawn,          SHCMD("mpv-prev-song") }, */
             /* { MEHKEY|MODKEY, XK_comma,      spawn,          SHCMD("") }, */
-            { MEHKEY, XK_period,            spawn,          SHCMD("mpv-next-song") },
+            /* { MEHKEY, XK_period,            spawn,          SHCMD("mpv-next-song") }, */
             /* { MEHKEY|MODKEY, XK_period,     spawn,          SHCMD("") }, */
-            { MEHKEY, XK_Print,             spawn,          SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+            /* { MEHKEY, XK_Print,             spawn,          SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") }, */
 
             /*                              XF86 KEYS                       */
             { 0, XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
