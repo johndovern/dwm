@@ -16,9 +16,9 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
-            "monospace:size=12:antialias=true:autohint=true",
-            "M+ 1c:pixelsize=20:antialias=true:autohint=true",
-            "JoyPixels:pixelsize=16:antialias=true:autohint=true"
+            "monospace:size=12",
+            "M+ 1c:pixelsize=18:antialias=true:autohint=true",
+            "JoyPixels:pixelsize=14:antialias=true:autohint=true"
 };
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
@@ -350,9 +350,9 @@ static Key keys[] = {
             /* { MEHKEY|MODKEY, XK_h,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_j,                 spawn,          SHCMD("xdotool mousemove --sync 50 300 && xdotool mousemove --sync 0 300") }, */
             /* { MEHKEY|MODKEY, XK_j,          spawn,          SHCMD("") }, */
-            { MEHKEY, XK_k,                 spawn,          SHCMD(TERMINAL " -n keepass -e keepasshide") },
+            /* { MEHKEY, XK_k,                 spawn,          SHCMD("xdotool mousemove --sync 3000 300") }, */
             /* { MEHKEY|MODKEY, XK_k,          spawn,          SHCMD("") }, */
-            /* { MEHKEY, XK_l,                 spawn,          SHCMD("killall keepassxc") }, */
+            { MEHKEY, XK_l,                 spawn,          SHCMD(TERMINAL " -n keepass -e keepasshide") },
             /* { MEHKEY|MODKEY, XK_l,          spawn,          SHCMD("") }, */
             /* { MEHKEY, XK_semicolon,         spawn,          SHCMD("") }, */
             /* { MEHKEY|MODKEY, XK_semicolon,  spawn,          SHCMD("") }, */
