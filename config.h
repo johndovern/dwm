@@ -234,7 +234,7 @@ static Key keys[] = {
             /* { MODKEY|ShiftMask, XK_z,       spawn,          SHCMD("") }, */
             { MODKEY, XK_x,                 incrgaps,       {.i = -3 } },
             /* { MODKEY|ShiftMask, XK_x,       spawn,          SHCMD("") }, */
-            /* { MODKEY, XK_c,                 spawn,          SHCMD("") }, */
+            { MODKEY, XK_c,                 spawn,          SHCMD("kill $(pidof sxhkd) ; sxhkd") },
             /* { MODKEY|ShiftMask, XK_c,       spawn,          SHCMD("") }, */
             { MODKEY, XK_v,                 togglefullscr,  {0} },
             /* { MODKEY|ShiftMask, XK_v,       spawn,          SHCMD("") }, */
