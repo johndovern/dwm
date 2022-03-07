@@ -183,8 +183,8 @@ static Key keys[] = {
             { MODKEY|ShiftMask, XK_e,       spawn,          SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
             { MODKEY, XK_r,                 spawn,          SHCMD(TERMINAL " -n lf_run -e lfrun") },
             { MODKEY|ShiftMask, XK_r,       spawn,          SHCMD(TERMINAL " -e htop") },
-            { MODKEY, XK_t,                 setlayout,      {.v = &layouts[1]} }, /* tile */
-            { MODKEY|ShiftMask, XK_t,       setlayout,      {.v = &layouts[2]} }, /* bstack */
+            { MODKEY, XK_t,                 setlayout,      {.v = &layouts[2]} }, /* bstack */
+            { MODKEY|ShiftMask, XK_t,       setlayout,      {.v = &layouts[1]} }, /* tile */
             { MODKEY, XK_y,                 setlayout,      {.v = &layouts[0]} }, /* spiral */
             { MODKEY|ShiftMask, XK_y,       setlayout,      {.v = &layouts[3]} }, /* dwindle */
             { MODKEY, XK_u,                 setlayout,      {.v = &layouts[4]} }, /* deck */
