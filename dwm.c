@@ -1657,6 +1657,7 @@ run(void)
 void
 runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks &");
+	system("killall -q sxhkd; sxhkd &");
 }
 
 void
