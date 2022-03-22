@@ -1657,6 +1657,7 @@ void
 runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q sxhkd; sxhkd &");
+	system("killall -q redshift; redshift -c $HOME/.config/redshift/redshiftrc &");
 }
 
 void
