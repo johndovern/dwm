@@ -1,8 +1,10 @@
 /* See LICENSE file for copyright and license details. */
+/* test */
 
 /* Constants */
 #define TERMINAL "st"
 #define TERMCLASS "St"
+#define STEAM "Steam"
 
 /* appearance */
 static unsigned int borderpx  = 4;        /* border pixel of windows */
@@ -60,6 +62,8 @@ static const Rule rules[] = {
             { NULL,                 "spterm",   NULL,             SPTAG(0),     1,          1,          0,        -1 },
             { NULL,                 "spcalc",   NULL,             SPTAG(1),     1,          1,          0,        -1 },
             { TERMCLASS,            TERMINAL,   "pulsemixer",     0,            1,          1,          0,        -1 },
+            { STEAM,                STEAM,      STEAM,            1 << 1,       0,          0,          0,        -1 },
+            { STEAM,                STEAM,      "Friends List",   1 << 1,       1,          0,          0,        -1 },
             { TERMCLASS,            "anime_lf", NULL,             1 << 2,       0,          1,          0,        -1 },
             { TERMCLASS,            "aniwiki",  NULL,             1 << 2,       0,          1,          0,        -1 },
             { "Lutris",             NULL,       NULL,             1 << 3,       0,          0,          0,        -1 },

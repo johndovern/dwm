@@ -1658,7 +1658,9 @@ runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q sxhkd; sxhkd &");
 	system("pidof -s redshift || setsid -f redshift -c $HOME/.config/redshift/redshiftrc");
-	/* system("(killall -q redshift && redshift -c $HOME/.config/redshift/redshiftrc &) || redshift -c $HOME/.config/redshift/redshiftrc &"); */
+  system("pidof easyeffects && pkill easyeffects");
+  system("setsid -f easyeffects --gapplication-service");
+  system("setsid -f easyeffects -w -l Improved-Mic");
 }
 
 void
