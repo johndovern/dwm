@@ -648,6 +648,7 @@ cleanup(void)
 		drw_cur_free(drw, cursor[i]);
 	for (i = 0; i < LENGTH(colors); i++)
 		free(scheme[i]);
+	free(scheme);
 	XDestroyWindow(dpy, wmcheckwin);
 	drw_free(drw);
 	XSync(dpy, False);
@@ -1306,7 +1307,7 @@ manage(Window w, XWindowAttributes *wa)
 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
 	grabbuttons(c, 0);
 	if (!c->isfloating)
-		c->isfloating = c->oldstate = trans != None || c->isfixed;
+		c->isfloating = c->oldstate = t || c->isfixed;
 	if (c->isfloating)
 		XRaiseWindow(dpy, c->win);
 	attach(c);
@@ -1657,7 +1658,7 @@ void
 runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q sxhkd; sxhkd &");
-	system("pidof -s redshift || setsid -f redshift -c $HOME/.config/redshift/redshiftrc");
+	system("pidof redshift || setsid -f redshift -c $HOME/.config/redshift/redshiftrc");
   system("pidof easyeffects && pkill easyeffects");
   system("setsid -f easyeffects --gapplication-service");
   system("setsid -f easyeffects -w -l Improved-Mic");
