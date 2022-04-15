@@ -1,5 +1,4 @@
-/* See test LICENSE file for copyright and license details. */
-/* testing */
+/* See LICENSE file for copyright and license details. */
 
 /* Constants */
 #define TERMINAL "st"
