@@ -68,6 +68,7 @@ static const Rule rules[] = {
             { "Lutris",             NULL,       NULL,             1 << 3,       0,          0,          0,        -1 },
             { "fate.exe",           NULL,       NULL,             1 << 4,       1,          0,          0,        -1 },
             { "Transmission-gtk",   NULL,       NULL,             1 << 5,       0,          0,          0,        -1 },
+            { "transmission",       NULL,       NULL,             1 << 5,       0,          0,          0,        -1 },
             { "kdenlive",           NULL,       NULL,             1 << 6,       0,          0,          0,        -1 },
             { "Gimp",               NULL,       NULL,             1 << 7,       0,          0,          0,        -1 },
             { "KeePassXC",          NULL,       NULL,             1 << 8,       0,          0,          0,        -1 },
