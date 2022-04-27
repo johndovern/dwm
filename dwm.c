@@ -1731,9 +1731,6 @@ runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q sxhkd; sxhkd &");
 	system("setsid -f restart-redshift");
-  system("pidof easyeffects && pkill easyeffects");
-  system("setsid -f easyeffects --gapplication-service");
-  system("setsid -f easyeffects -w -l Improved-Mic");
 }
 
 void
