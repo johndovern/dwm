@@ -959,6 +959,16 @@ drawbar(Monitor *m)
 		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d/%d]", s, a);
 	}
 
+	if (m->lt[m->sellt]->arrange == deck) {
+		for (c = nexttiled(m->clients), a = 0, s = 0; c; c = nexttiled(c->next), a++)
+			if (c == m->stack)
+				s = a + 1;
+
+		if (!s && a)
+			s = 1;
+		snprintf(m->ltsymbol, sizeof m->ltsymbol, "D [%d/%d]", s, a);
+	}
+
 	w = blw = TEXTW(m->ltsymbol);
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
