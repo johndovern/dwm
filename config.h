@@ -17,9 +17,11 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
-            "monospace:size=12",
-            "M+ 1c:pixelsize=18:antialias=true:autohint=true",
-            "JoyPixels:pixelsize=14:antialias=true:autohint=true"
+    "monospace:size=12",
+    "IPAGothic:pixelsize=18:antialias=true:autohint=true",
+    "Source Han Sans JP:pixelsize=18:antialias=true:autohint=true",
+    "M+ 1c:pixelsize=18:antialias=true:autohint=true",
+    "JoyPixels:pixelsize=14:antialias=true:autohint=true"
 };
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
@@ -50,16 +52,16 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
             /* xprop(1):
-             *	WM_CLASS(STRING) = instance, class
-             *	WM_NAME(STRING) = title
+             *  WM_CLASS(STRING) = instance, class
+             *  WM_NAME(STRING) = title
             */
-            /* class              instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
+            /* class              instance      title          tags mask    isfloating   isterminal  noswallow  monitor */
             { TERMCLASS,            NULL,       NULL,             0,            0,          1,          0,        -1 },
             { TERMCLASS,            "tmux",     NULL,             0,            0,          1,          0,        -1 },
             { NULL,                 NULL,       "Event Tester",   0,            0,          0,          1,        -1 },
             { "mpv",                "fmpv",     NULL,             0,            1,          0,          0,        -1 },
-            { NULL,                 "spterm",   NULL,             SPTAG(0),     1,          1,          0,        -1 },
-            { NULL,                 "spcalc",   NULL,             SPTAG(1),     1,          1,          0,        -1 },
+            { TERMCLASS,            "spterm",   NULL,             SPTAG(0),     1,          1,          0,        -1 },
+            { TERMCLASS,            "spcalc",   NULL,             SPTAG(1),     1,          1,          0,        -1 },
             { TERMCLASS,            TERMINAL,   "pulsemixer",     0,            1,          1,          0,        -1 },
             { STEAM,                STEAM,      STEAM,            1 << 1,       0,          0,          0,        -1 },
             { STEAM,                STEAM,      "Friends List",   1 << 1,       1,          0,          0,        -1 },
@@ -125,7 +127,7 @@ static const char *termcmd[]  = { TERMINAL, "-n", "tmux", NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-            { "colornbg",		      STRING,     &normbgcolor },
+            { "colornbg",          STRING,     &normbgcolor },
             { "colornbord",       STRING,     &normbordercolor },
             { "colornfg",         STRING,     &normfgcolor },
             { "colorselfg",       STRING,     &selfgcolor },
@@ -207,7 +209,7 @@ static Key keys[] = {
             { MODKEY, XK_backslash,         view,           {0} },
             /* { MODKEY|ShiftMask, XK_backslash, spawn,        SHCMD("") }, */
 
-            /*                              ROW 3                     			*/
+            /*                              ROW 3                           */
             { MODKEY, XK_a,                 togglegaps,     {0} },
             { MODKEY|ShiftMask, XK_a,       defaultgaps,    {0} },
             { MODKEY, XK_s,                 togglesticky,   {0} },
@@ -230,6 +232,7 @@ static Key keys[] = {
             /* { MODKEY|ShiftMask, XK_semicolon, shifttag,     { .i = 1 } }, */
             { MODKEY, XK_semicolon,         setmfact,       {.f = +0.05} },
             { MODKEY, XK_apostrophe,        togglescratch,  {.ui = 1} },
+            { MODKEY|ShiftMask, XK_apostrophe, togglesmartgaps,   {0} },
             /* { MODKEY|ShiftMask, XK_apostrophe,  spawn,      SHCMD("") }, */
             { MODKEY, XK_Return,            spawn,          {.v = termcmd } },
             { MODKEY|ShiftMask, XK_Return,  togglescratch,  {.ui = 0} },
@@ -474,70 +477,71 @@ static Button buttons[] = {
 void
 setlayoutex(const Arg *arg)
 {
-	setlayout(&((Arg) { .v = &layouts[arg->i] }));
+  setlayout(&((Arg) { .v = &layouts[arg->i] }));
 }
 
 void
 viewex(const Arg *arg)
 {
-	view(&((Arg) { .ui = 1 << arg->ui }));
+  view(&((Arg) { .ui = 1 << arg->ui }));
 }
 
 void
 viewall(const Arg *arg)
 {
-	view(&((Arg){.ui = ~0}));
+  view(&((Arg){.ui = ~0}));
 }
 
 void
 toggleviewex(const Arg *arg)
 {
-	toggleview(&((Arg) { .ui = 1 << arg->ui }));
+  toggleview(&((Arg) { .ui = 1 << arg->ui }));
 }
 
 void
 tagex(const Arg *arg)
 {
-	tag(&((Arg) { .ui = 1 << arg->ui }));
+  tag(&((Arg) { .ui = 1 << arg->ui }));
 }
 
 void
 toggletagex(const Arg *arg)
 {
-	toggletag(&((Arg) { .ui = 1 << arg->ui }));
+  toggletag(&((Arg) { .ui = 1 << arg->ui }));
 }
 
 void
 tagall(const Arg *arg)
 {
-	tag(&((Arg){.ui = ~0}));
+  tag(&((Arg){.ui = ~0}));
 }
 
 /* signal definitions */
 /* signum must be greater than 0 */
 /* trigger signals using `xsetroot -name "fsignal:<signame> [<type> <value>]"` */
 static Signal signals[] = {
-	/* signum           function */
-	{ "focusstack",     focusstack },
-	{ "setmfact",       setmfact },
-	{ "togglebar",      togglebar },
-	{ "incnmaster",     incnmaster },
-	{ "togglefloating", togglefloating },
-	{ "focusmon",       focusmon },
-	{ "tagmon",         tagmon },
-	{ "zoom",           zoom },
-	{ "view",           view },
-	{ "viewall",        viewall },
-	{ "viewex",         viewex },
-	{ "toggleview",     view },
-	{ "toggleviewex",   toggleviewex },
-	{ "tag",            tag },
-	{ "tagall",         tagall },
-	{ "tagex",          tagex },
-	{ "toggletag",      tag },
-	{ "toggletagex",    toggletagex },
-	{ "killclient",     killclient },
-	{ "quit",           quit },
-	{ "setlayout",      setlayout },
-	{ "setlayoutex",    setlayoutex },
+  /* signum           function */
+  { "focusstack",     focusstack },
+  { "setmfact",       setmfact },
+  { "togglebar",      togglebar },
+  { "incnmaster",     incnmaster },
+  { "togglefloating", togglefloating },
+  { "focusmon",       focusmon },
+  { "tagmon",         tagmon },
+  { "zoom",           zoom },
+  { "view",           view },
+  { "viewall",        viewall },
+  { "viewex",         viewex },
+  { "toggleview",     view },
+  { "toggleviewex",   toggleviewex },
+  { "tag",            tag },
+  { "tagall",         tagall },
+  { "tagex",          tagex },
+  { "toggletag",      tag },
+  { "toggletagex",    toggletagex },
+  { "killclient",     killclient },
+  { "quit",           quit },
+  { "setlayout",      setlayout },
+  { "setlayoutex",    setlayoutex },
 };
+
