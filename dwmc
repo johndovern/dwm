@@ -4,37 +4,91 @@ signal() {
 	xsetroot -name "fsignal:$*"
 }
 
+usage() {
+  cat <<-HEREDOC
+  Usage:  dwmc [options] arg1 [arg2]
+
+  Options:
+    -h, --help          Display this message and exit.
+
+  Single arg commands:
+    setlayout           Set layout to default layout.
+    view [n]            View tag n, n is optional.
+    viewall             View all tags simultaneously.
+    togglebar           Toggle statusbar.
+    togglefloating      Toggle floating for focused client.
+    zoom                If focused client is the master swap
+                        with next client in stack. If focused
+                        client is not the master it will
+                        become the master.
+    killclient          Kill focused client.
+    quit                Quit dwm.
+    togglesticky        Toggle sticky attribute on focused
+                        client.
+
+  Multi arg commands:
+    viewex [0-8]        View tag [1-9] where 0 is 1, 1 is 2, etc.
+    toggleviewex [0-8]  Toggle tag number to view or hide from
+                        current tag.
+    tagex [0-8]         Send focused client to tag [1-9].
+    toggletagex [0-8]   Toggle client tag [1-9].
+    setlayoutex [0-n]   Set layout where layout [n] corresponds
+                        to your layout array.
+    focusstack [0-n]    Focus [n] client in the stack.
+    incnmaster +|-n     Increase or decrease number of masters.
+    focusmon +|-n       Focus monitor relative to the current
+                        monitor.
+    tagmon +|-n         Send focused client to monitor relative
+                        to the current monitor.
+    focusnmon [0-n]     Focus [n] monitor. Not relative, monitor
+                        0 is monitor 0 even if you are on 0.
+    tagnmon [0-n]       Send client to [n] monitor. Not relative,
+                        monitor 0 is monitor 0 even if you are on 0.
+HEREDOC
+}
+
 case $# in
 1)
 	case $1 in
-	setlayout | view | viewall | togglebar | togglefloating | zoom | killclient | quit)
-		signal $1
-		;;
-	*)
-		echo "Unknown command or missing one argument."
-		exit 1
-		;;
+    -h | --help)
+      usage
+      exit 1
+      ;;
+    setlayout | view | viewall | togglebar | togglefloating | zoom | killclient | quit | togglesticky)
+      signal $1
+      ;;
+    *)
+      echo "Unknown command or missing one argument."
+      usage
+      exit 1
+      ;;
 	esac
 	;;
 2)
 	case $1 in
-	view)
-		signal $1 ui $2
-		;;
-	viewex | toggleviewex | tagex | toggletagex | setlayoutex | focusstack | incnmaster | focusmon | tagmon)
-		signal $1 i $2
-		;;
-	setmfact)
-		signal $1 f $2
-		;;
-	*)
-		echo "Unknown command or one too many arguments."
-		exit 1
-		;;
-	esac
-	;;
-*)
-	echo "Too many arguments."
-	exit 1
-	;;
+    -h | --help)
+      usage
+      exit 1
+      ;;
+    view)
+      signal $1 ui $2
+      ;;
+    viewex | toggleviewex | tagex | toggletagex | setlayoutex | focusstack | incnmaster | focusmon | tagmon | focusnmon | tagnmon )
+      signal $1 i $2
+      ;;
+    setmfact)
+      signal $1 f $2
+      ;;
+    *)
+      echo "Unknown command or one too many arguments."
+      usage
+      exit 1
+      ;;
+    esac
+    ;;
+  *)
+    echo "Too many arguments."
+    usage
+    exit 1
+    ;;
 esac

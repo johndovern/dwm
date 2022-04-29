@@ -111,7 +111,7 @@ static const Layout layouts[] = {
 #define STACKKEYS(MOD,ACTION) \
             { MOD,    XK_j,     ACTION##stack,    {.i = INC(+1) } }, \
             { MOD,    XK_k,     ACTION##stack,    {.i = INC(-1) } }, \
-            { MOD,    XK_f,     ACTION##stack,    {.i = 0 } }, \
+            { MOD,    XK_f,     ACTION##stack,    {.i = 0 } },
             /* { MOD,    XK_grave, ACTION##stack,    {.i = PREVSEL } }, \ */
             /* { MOD,    XK_a,     ACTION##stack,    {.i = 1 } }, \ */
             /* { MOD,    XK_z,     ACTION##stack,    {.i = 2 } }, \ */
@@ -127,7 +127,7 @@ static const char *termcmd[]  = { TERMINAL, "-n", "tmux", NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-            { "colornbg",          STRING,     &normbgcolor },
+            { "colornbg",         STRING,     &normbgcolor },
             { "colornbord",       STRING,     &normbordercolor },
             { "colornfg",         STRING,     &normfgcolor },
             { "colorselfg",       STRING,     &selfgcolor },
@@ -543,5 +543,8 @@ static Signal signals[] = {
   { "quit",           quit },
   { "setlayout",      setlayout },
   { "setlayoutex",    setlayoutex },
+  { "focusnmon",      focusnthmon },
+  { "tagnmon",        tagnthmon },
+  { "togglesticky",   togglesticky },
 };
 
