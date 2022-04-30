@@ -546,5 +546,6 @@ static Signal signals[] = {
   { "focusnmon",      focusnthmon },
   { "tagnmon",        tagnthmon },
   { "togglesticky",   togglesticky },
+  { "pushstack",      pushstack },
 };
 
