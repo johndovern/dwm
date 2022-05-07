@@ -1,1 +1,4 @@
 .ccls-cache/
+dwm
+dwm.o
+util.o
