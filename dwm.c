@@ -1733,6 +1733,7 @@ runAutostart(void) {
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q sxhkd; sxhkd &");
 	system("setsid -f restart-redshift");
+  system("killall -q xdg-desktop-portal-kde; /usr/lib/xdg-desktop-portal-kde &");
 }
 
 void
