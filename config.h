@@ -251,6 +251,8 @@ static Key keys[] = {
 static Button buttons[] = {
             /* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
+            { ClkWinTitle,          0,              Button1,        focusstack,     {.i = 0 } },
+            { ClkWinTitle,          0,              Button2,        killclient,     {0} },
             { ClkWinTitle,          0,              Button3,        zoom,           {0} },
             { ClkWinTitle,          0,              Button4,        spawn,          SHCMD("xdotool key 'super+k'") },
             { ClkWinTitle,          0,              Button5,        spawn,          SHCMD("xdotool key 'super+j'") },
