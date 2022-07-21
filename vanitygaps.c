@@ -18,7 +18,7 @@ static void deck(Monitor *m);
 static void dwindle(Monitor *m);
 static void fibonacci(Monitor *m, int s);
 static void spiral(Monitor *m);
-static void tile(Monitor *);
+static void tile(Monitor *m);
 
 /* Internals */
 static void getgaps(Monitor *m, int *oh, int *ov, int *ih, int *iv, unsigned int *nc);
