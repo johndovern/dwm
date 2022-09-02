@@ -51,29 +51,29 @@ static Sp scratchpads[] = {
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
-			/* xprop(1):
-			 *  WM_CLASS(STRING) = instance, class
-			 *  WM_NAME(STRING) = title
-			*/
-			/* class              instance      title          tags mask    isfloating   isterminal  noswallow  monitor */
-			{ TERMCLASS,            NULL,       NULL,             0,            0,          1,          0,        -1 },
-			{ TERMCLASS,            "tmux",     NULL,             0,            0,          1,          0,        -1 },
-			{ NULL,                 NULL,       "Event Tester",   0,            0,          0,          1,        -1 },
-			{ "mpv",                "fmpv",     NULL,             0,            1,          0,          0,        -1 },
-			{ TERMCLASS,            "spterm",   NULL,             SPTAG(0),     1,          1,          0,        -1 },
-			{ TERMCLASS,            "spcalc",   NULL,             SPTAG(1),     1,          1,          0,        -1 },
-			{ TERMCLASS,            TERMINAL,   "pulsemixer",     0,            1,          1,          0,        -1 },
-			{ STEAM,                STEAM,      STEAM,            1 << 1,       0,          0,          0,        -1 },
-			{ STEAM,                STEAM,      "Friends List",   1 << 1,       1,          0,          0,        -1 },
-			{ TERMCLASS,            "anime_lf", NULL,             1 << 2,       0,          1,          0,        -1 },
-			{ TERMCLASS,            "aniwiki",  NULL,             1 << 2,       0,          1,          0,        -1 },
-			{ "Lutris",             NULL,       NULL,             1 << 3,       0,          0,          0,        -1 },
-			{ "fate.exe",           NULL,       NULL,             1 << 4,       1,          0,          0,        -1 },
-			{ "Transmission-gtk",   NULL,       NULL,             1 << 5,       0,          0,          0,        -1 },
-			{ "transmission",       NULL,       NULL,             1 << 5,       0,          0,          0,        -1 },
-			{ "kdenlive",           NULL,       NULL,             1 << 6,       0,          0,          0,        -1 },
-			{ "Gimp",               NULL,       NULL,             1 << 7,       0,          0,          0,        -1 },
-			{ "KeePassXC",          NULL,       NULL,             1 << 8,       0,          0,          0,        -1 },
+            /* xprop(1):
+                *  WM_CLASS(STRING) = instance, class
+                *  WM_NAME(STRING) = title
+            */
+            /* class              instance      title          tags mask    isfloating   isterminal  noswallow  monitor */
+            { TERMCLASS,            NULL,       NULL,             0,            0,          1,          0,        -1 },
+            { TERMCLASS,            "tmux",     NULL,             0,            0,          1,          0,        -1 },
+            { NULL,                 NULL,       "Event Tester",   0,            0,          0,          1,        -1 },
+            { "mpv",                "fmpv",     NULL,             0,            1,          0,          0,        -1 },
+            { TERMCLASS,            "spterm",   NULL,             SPTAG(0),     1,          1,          0,        -1 },
+            { TERMCLASS,            "spcalc",   NULL,             SPTAG(1),     1,          1,          0,        -1 },
+            { TERMCLASS,            TERMINAL,   "pulsemixer",     0,            1,          1,          0,        -1 },
+            { STEAM,                STEAM,      STEAM,            1 << 1,       0,          0,          0,        -1 },
+            { STEAM,                STEAM,      "Friends List",   1 << 1,       1,          0,          0,        -1 },
+            { TERMCLASS,            "anime_lf", NULL,             1 << 2,       0,          1,          0,        -1 },
+            { TERMCLASS,            "aniwiki",  NULL,             1 << 2,       0,          1,          0,        -1 },
+            { "Lutris",             NULL,       NULL,             1 << 3,       0,          0,          0,        -1 },
+            { "fate.exe",           NULL,       NULL,             1 << 4,       1,          0,          0,        -1 },
+            { "Transmission-gtk",   NULL,       NULL,             1 << 5,       0,          0,          0,        -1 },
+            { "transmission",       NULL,       NULL,             1 << 5,       0,          0,          0,        -1 },
+            { "kdenlive",           NULL,       NULL,             1 << 6,       0,          0,          0,        -1 },
+            { "Gimp",               NULL,       NULL,             1 << 7,       0,          0,          0,        -1 },
+            { "KeePassXC",          NULL,       NULL,             1 << 8,       0,          0,          0,        -1 },
 };
 
 /* layout(s) */
