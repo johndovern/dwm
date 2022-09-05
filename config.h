@@ -5,6 +5,8 @@
 #define TERMCLASS "St"
 #define STEAM "Steam"
 
+#define SESSION_FILE "/tmp/dwm-session"
+
 /* appearance */
 static unsigned int borderpx  = 4;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
