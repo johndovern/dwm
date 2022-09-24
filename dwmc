@@ -17,6 +17,7 @@ usage() {
     viewall                 View all tags simultaneously.
     togglebar               Toggle statusbar.
     togglefloating          Toggle floating for focused client.
+    togglefullscr           Toggle fullscreen for focused client.
     zoom                    If focused client is the master swap
                             with next client in stack. If focused
                             client is not the master it will
@@ -56,7 +57,7 @@ case $# in
       usage
       exit 1
       ;;
-    setlayout | view | viewall | togglebar | togglefloating | zoom | killclient | quit | togglesticky)
+    setlayout | view | viewall | togglebar | togglefloating | zoom | killclient | quit | togglesticky | togglefullscr)
       signal $1
       ;;
     *)
