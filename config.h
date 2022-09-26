@@ -177,14 +177,14 @@ static Key keys[] = {
             { MODKEY|ShiftMask, XK_u,       setlayout,      {.v = &layouts[6]} }, /* centeredmaster */
             { MODKEY, XK_i,                 setlayout,      {.v = &layouts[5]} }, /* monocle */
             { MODKEY|ShiftMask, XK_i,       setlayout,      {.v = &layouts[7]} }, /* centeredfloatingmaster */
-            { MODKEY, XK_o,                 incnmaster,     {.i = +1 } },
-            { MODKEY|ShiftMask, XK_o,       incnmaster,     {.i = -1 } },
+            /* { MODKEY, XK_o,                 incnmaster,     {.i = +1 } }, */
+            /* { MODKEY|ShiftMask, XK_o,       incnmaster,     {.i = -1 } }, */
             { MODKEY, XK_backslash,         view,           {0} },
 
             /*                              ROW 3                           */
             { MODKEY, XK_a,                 togglegaps,     {0} },
             { MODKEY|ShiftMask, XK_a,       defaultgaps,    {0} },
-            { MODKEY, XK_s,                 togglesticky,   {0} },
+            /* { MODKEY, XK_s,                 togglesticky,   {0} }, */
             /*          F is automatically bound above in STACKKEYS         */
             { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} },
             { MODKEY, XK_g,                 setmfact,       {.f = -0.05} },
@@ -352,6 +352,7 @@ static Signal signals[] = {
   { "quit",           quit },
   { "setlayout",      setlayout },
   { "setlayoutex",    setlayoutex },
+  { "shiftview",      shiftview },
   { "focusnmon",      focusnthmon },
   { "tagnmon",        tagnthmon },
   { "togglesticky",   togglesticky },
