@@ -8,7 +8,7 @@
 #define SESSION_FILE "/tmp/dwm-session"
 
 /* appearance */
-static unsigned int borderpx  = 4;        /* border pixel of windows */
+static unsigned int borderpx  = 6;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static unsigned int gappih    = 10;       /* horiz inner gap between windows */
 static unsigned int gappiv    = 10;       /* vert inner gap between windows */
@@ -24,7 +24,7 @@ static char *fonts[]          = {
     "Source Han Sans JP:pixelsize=18:antialias=true:autohint=true",
     "M+ 1c:pixelsize=18:antialias=true:autohint=true",
     "JoyPixels:pixelsize=14:antialias=true:autohint=true"
-};
+ };
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
 static char normfgcolor[]           = "#eeeeee";
