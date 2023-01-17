@@ -156,7 +156,7 @@ ResourcePref resources[] = {
 #include <X11/XF86keysym.h>
 #include "shiftview.c"
 
-static Key keys[] = {
+static const Key keys[] = {
     /* modifier     key             function        argument */
     /*                              ROW 1                           */
     STACKKEYS(MODKEY,               focus)
@@ -258,7 +258,7 @@ static Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
     /* click                event mask      button          function        argument */
 #ifndef __OpenBSD__
     { ClkWinTitle,          0,              Button1,        focusstack,     {.i = 0 } },
