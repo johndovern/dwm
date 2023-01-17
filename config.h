@@ -95,15 +95,15 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
     /* symbol     arrange function */
     { "[@]",      spiral },   /* Default: Fibonacci spiral */
-    { "[]=",      tile },     /* Master on left, slaves on right */
+    { "[M]",      monocle },  /* All windows on top of eachother */
+    { NULL,       NULL },
     { "TTT",      bstack },   /* Master on top, slaves on bottom */
+    { "[]=",      tile },     /* Master on left, slaves on right */
     { "[\\]",     dwindle },  /* Decreasing in size right and leftward */
     { "[D]",      deck },     /* Master on left, slaves in monocle-like mode on right */
-    { "[M]",      monocle },  /* All windows on top of eachother */
     { "|M|",      centeredmaster },   /* Master in middle, slaves on sides */
     { ">M>",      centeredfloatingmaster },   /* Same but master floats */
     { "><>",      NULL },     /* no layout function means floating behavior */
-    { NULL,       NULL },
 };
 
 /* key definitions */
@@ -176,14 +176,14 @@ static Key keys[] = {
     /*                              ROW 2                           */
     { MODKEY, XK_Tab,               view,           {0} },
     { MODKEY, XK_q,                 killclient,     {0} },
-    { MODKEY, XK_t,                 setlayout,      {.v = &layouts[2]} }, /* bstack */
-    { MODKEY|ShiftMask, XK_t,       setlayout,      {.v = &layouts[1]} }, /* tile */
     { MODKEY, XK_y,                 setlayout,      {.v = &layouts[0]} }, /* spiral */
-    { MODKEY|ShiftMask, XK_y,       setlayout,      {.v = &layouts[3]} }, /* dwindle */
-    { MODKEY, XK_u,                 setlayout,      {.v = &layouts[4]} }, /* deck */
-    { MODKEY|ShiftMask, XK_u,       setlayout,      {.v = &layouts[6]} }, /* centeredmaster */
-    { MODKEY, XK_i,                 setlayout,      {.v = &layouts[5]} }, /* monocle */
-    { MODKEY|ShiftMask, XK_i,       setlayout,      {.v = &layouts[7]} }, /* centeredfloatingmaster */
+    { MODKEY, XK_i,                 setlayout,      {.v = &layouts[1]} }, /* monocle */
+    { MODKEY, XK_t,                 setlayout,      {.v = &layouts[3]} }, /* bstack */
+    { MODKEY|ShiftMask, XK_t,       setlayout,      {.v = &layouts[4]} }, /* tile */
+    { MODKEY|ShiftMask, XK_y,       setlayout,      {.v = &layouts[5]} }, /* dwindle */
+    { MODKEY, XK_u,                 setlayout,      {.v = &layouts[6]} }, /* deck */
+    { MODKEY|ShiftMask, XK_u,       setlayout,      {.v = &layouts[7]} }, /* centeredmaster */
+    { MODKEY|ShiftMask, XK_i,       setlayout,      {.v = &layouts[8]} }, /* centeredfloatingmaster */
     /* { MODKEY, XK_o,                 incnmaster,     {.i = +1 } }, */
     /* { MODKEY|ShiftMask, XK_o,       incnmaster,     {.i = -1 } }, */
     { MODKEY, XK_backslash,         view,           {0} },
@@ -193,7 +193,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask, XK_a,       defaultgaps,    {0} },
     /* { MODKEY, XK_s,                 togglesticky,   {0} }, */
     /*          F is automatically bound above in STACKKEYS         */
-    { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} },
+    { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[9]} },
+    /* { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} }, */
     { MODKEY, XK_g,                 setmfact,       {.f = -0.05} },
     { MODKEY, XK_h,                 shiftview,      { .i = -1 } },
     { MODKEY|ShiftMask, XK_h,       shifttag,       { .i = -1 } },
@@ -232,7 +233,7 @@ static Key keys[] = {
     { 0, XF86XK_AudioPrev,          spawn,          SHCMD("mpc prev") },
     { 0, XF86XK_AudioNext,          spawn,          SHCMD("mpc next") },
     { 0, XF86XK_AudioPause,         spawn,          SHCMD("mpc toggle") },
-    { 0, XF86XK_AudioPlay,          spawn,          SHCMD("mpc toggle") },
+    /* { 0, XF86XK_AudioPlay,          spawn,          SHCMD("mpc toggle") }, */
     { 0, XF86XK_AudioStop,          spawn,          SHCMD("mpc stop") },
     { 0, XF86XK_AudioRewind,        spawn,          SHCMD("mpc seek -10") },
     { 0, XF86XK_AudioForward,       spawn,          SHCMD("mpc seek +10") },
@@ -283,14 +284,15 @@ static Button buttons[] = {
     { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
     { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
     { ClkTagBar,            0,              Button4,        shiftview,      {.i = -1} },
-    { ClkTagBar,            0,              Button5,        shiftview,      {.i = 1} },
+    { ClkTagBar,            0,              Button5,        shiftview,      {.i = +1} },
     { ClkRootWin,           0,              Button1,        movemouse,      {0} },
     { ClkRootWin,           0,              Button2,        togglefloating, {0} },
     { ClkRootWin,           0,              Button3,        resizemouse,    {0} },
     { ClkRootWin,           0,              Button4,        shiftview,      {.i = -1} },
-    { ClkRootWin,           0,              Button5,        shiftview,      {.i = 1} },
+    { ClkRootWin,           0,              Button5,        shiftview,      {.i = +1} },
+    { ClkRootWin,           0,                    8,        cyclelayout,    {.i = +1} },
     { ClkLtSymbol,          0,              Button1,        setlayout,      {.v = &layouts[0]} }, /* spiral */
-    { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[5]} }, /* monocle */
+    { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[1]} }, /* monocle */
 };
 
 void
