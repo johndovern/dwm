@@ -192,7 +192,7 @@ static const Key keys[] = {
     /*                              ROW 3                           */
     { MODKEY, XK_a,                 togglegaps,     {0} },
     { MODKEY|ShiftMask, XK_a,       defaultgaps,    {0} },
-    /* { MODKEY, XK_s,                 togglesticky,   {0} }, */
+    { MODKEY, XK_s,                 togglesticky,   {0} },
     /*          F is automatically bound above in STACKKEYS         */
     { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[9]} },
     /* { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} }, */
