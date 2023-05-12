@@ -7,6 +7,8 @@
 #define FIREFOX         "Mozilla Firefox"
 #define BRAVE_U         "Brave-browser"
 #define BRAVE_L         "brave-browser"
+#define LIBRE_I         "Navigator"
+#define LIBRE_C         "LibreWolf"
 
 #define SESSION_FILE    "/tmp/dwm-session"
 
@@ -70,7 +72,7 @@ static const Rule rules[] = {
     { TERMCLASS,           "spcalc",    NULL,             SPTAG(1),     1,          1,          0,        -1,       0 },
     { TERMCLASS,           TERMINAL,    "pulsemixer",     0,            1,          1,          0,        -1,       0 },
     { "Emacs",             "emacs",     NULL,             1 << 0,       0,          0,          0,        -1,       0 },
-    { "LibreWolf",         "Navigator", "LibreWolf",      1 << 1,       0,          0,          0,        -1,       0 },
+    { LIBRE_C,             LIBRE_I,     NULL,             1 << 1,       0,          0,          0,        -1,       0 },
     { STEAM,               STEAM,       STEAM,            1 << 1,       0,          0,          0,        -1,       0 },
     { STEAM,               STEAM,       "Friends List",   1 << 1,       1,          0,          0,        -1,       0 },
     { "firefox",           "Navigator", FIREFOX,          1 << 2,       0,          0,          0,        -1,       0 },
@@ -267,6 +269,7 @@ static const Button buttons[] = {
     { ClkWinTitle,          0,              Button3,        zoom,           {0} },
     { ClkWinTitle,          0,              Button4,        spawn,          SHCMD("xdotool key 'super+k'") },
     { ClkWinTitle,          0,              Button5,        spawn,          SHCMD("xdotool key 'super+j'") },
+    { ClkWinTitle,          0,              8,              togglesticky,   {0} },
     { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
     { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
     { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
@@ -291,7 +294,7 @@ static const Button buttons[] = {
     { ClkRootWin,           0,              Button3,        resizemouse,    {0} },
     { ClkRootWin,           0,              Button4,        shiftview,      {.i = -1} },
     { ClkRootWin,           0,              Button5,        shiftview,      {.i = +1} },
-    { ClkRootWin,           0,                    8,        cyclelayout,    {.i = +1} },
+    { ClkRootWin,           0,              8,              cyclelayout,    {.i = +1} },
     { ClkLtSymbol,          0,              Button1,        setlayout,      {.v = &layouts[0]} }, /* spiral */
     { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[1]} }, /* monocle */
 };
