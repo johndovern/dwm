@@ -222,6 +222,7 @@ static void focusnthmon(const Arg *arg);
 static void focusstack(const Arg *arg);
 static int getrootptr(int *x, int *y);
 static long getstate(Window w);
+static pid_t getstatusbarpid();
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
@@ -259,6 +260,7 @@ static void setup(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
 static void sigchld(int unused);
+static void sigstatusbar(const Arg *arg);
 #ifndef __OpenBSD__
 static int getdwmblockspid();
 static void sigdwmblocks(const Arg *arg);
@@ -310,6 +312,9 @@ static pid_t winpid(Window w);
 /* variables */
 static const char broken[] = "broken";
 static char stext[256];
+static int statusw;
+static int statussig;
+static pid_t statuspid = -1;
 static char rawstext[256];
 static int dwmblockssig;
 pid_t dwmblockspid = 0;
@@ -592,6 +597,7 @@ buttonpress(XEvent *e)
 	Client *c;
 	Monitor *m;
 	XButtonPressedEvent *ev = &e->xbutton;
+	char *text, *s, ch;
 
 	click = ClkRootWin;
 	/* focus monitor if necessary */
@@ -615,25 +621,42 @@ buttonpress(XEvent *e)
 			arg.ui = 1 << i;
 		} else if (ev->x < x + TEXTW(selmon->ltsymbol))
 			click = ClkLtSymbol;
-		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
+		/* else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) { */
+		else if (ev->x > selmon->ww - statusw) {
+			x = selmon->ww - statusw;
 			click = ClkStatusText;
 
-			char *text = rawstext;
-			int i = -1;
-			char ch;
-			dwmblockssig = 0;
-			while (text[++i]) {
-				if ((unsigned char)text[i] < ' ') {
-					ch = text[i];
-					text[i] = '\0';
+			statussig = 0;
+			for (text = s = stext; *s && x <= ev->x; s++) {
+				if ((unsigned char)(*s) < ' ') {
+					ch = *s;
+					*s = '\0';
 					x += TEXTW(text) - lrpad;
-					text[i] = ch;
-					text += i+1;
-					i = -1;
-					if (x >= ev->x) break;
-					dwmblockssig = ch;
+					*s = ch;
+					text = s + 1;
+					if (x >= ev->x)
+						break;
+					statussig = ch;
 				}
 			}
+
+		/* 	char *text = rawstext; */
+		/* 	int i = -1; */
+		/* 	char ch; */
+		/* 	dwmblockssig = 0; */
+		/* 	while (text[++i]) { */
+		/* 		if ((unsigned char)text[i] < ' ') { */
+		/* 			ch = text[i]; */
+		/* 			text[i] = '\0'; */
+		/* 			x += TEXTW(text) - lrpad; */
+		/* 			text[i] = ch; */
+		/* 			text += i+1; */
+		/* 			i = -1; */
+		/* 			if (x >= ev->x) break; */
+		/* 			dwmblockssig = ch; */
+		/* 		} */
+		/* 	} */
+		/* } else */
 		} else
 			click = ClkWinTitle;
 	} else if ((c = wintoclient(ev->window))) {
@@ -970,9 +993,24 @@ drawbar(Monitor *m)
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
+		char *text, *s, ch;
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		sw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
-		drw_text(drw, m->ww - sw, 0, sw, bh, 0, stext, 0);
+		x = 0;
+		for (text = s = stext; *s; s++) {
+			if ((unsigned char)(*s) < ' ') {
+				ch = *s;
+				*s = '\0';
+				sw = TEXTW(text) - lrpad;
+				drw_text(drw, m->ww - statusw + x, 0, sw, bh, 0, text, 0);
+				x += sw;
+				*s = ch;
+				text = s + 1;
+			}
+		}
+		sw = TEXTW(text) - lrpad + 2;
+		drw_text(drw, m->ww - statusw + x, 0, sw, bh, 0, text, 0);
+		/* sw = TEXTW(stext) - lrpad + 2; /\* 2px right padding *\/ */
+		/* drw_text(drw, m->ww - sw, 0, sw, bh, 0, stext, 0); */
 	}
 
 	for (c = m->clients; c; c = c->next) {
@@ -984,7 +1022,7 @@ drawbar(Monitor *m)
 	for (i = 0; i < LENGTH(tags); i++) {
 		/* do not draw vacant tags */
 		if (!(occ & 1 << i || m->tagset[m->seltags] & 1 << i))
-		continue;
+			continue;
 
 		w = TEXTW(tags[i]);
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
@@ -1181,6 +1219,30 @@ getdwmblockspid()
 	return pid != 0 ? 0 : -1;
 }
 #endif
+
+pid_t
+getstatusbarpid()
+{
+	char buf[32], *str = buf, *c;
+	FILE *fp;
+
+	if (statuspid > 0) {
+		snprintf(buf, sizeof(buf), "/proc/%u/cmdline", statuspid);
+		if ((fp = fopen(buf, "r"))) {
+			fgets(buf, sizeof(buf), fp);
+			while ((c = strchr(str, '/')))
+				str = c + 1;
+			fclose(fp);
+			if (!strcmp(str, STATUSBAR))
+				return statuspid;
+		}
+	}
+	if (!(fp = popen("pidof -s "STATUSBAR, "r")))
+		return -1;
+	fgets(buf, sizeof(buf), fp);
+	pclose(fp);
+	return strtol(buf, NULL, 10);
+}
 
 int
 getrootptr(int *x, int *y)
@@ -1841,7 +1903,7 @@ run(void)
 void
 runAutostart(void) {
 	system("setsid -f restart-redshift");
-	system("killall -q emacs; emacs --daemon &");
+	/* system("killall -q emacs; emacs --daemon &"); */
     system("killall -q xdg-desktop-portal-kde; /usr/lib/xdg-desktop-portal-kde &");
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q wkx; wkx --daemon &");
@@ -1934,6 +1996,20 @@ setfocus(Client *c)
 			(unsigned char *) &(c->win), 1);
 	}
 	sendevent(c, wmatom[WMTakeFocus]);
+}
+
+void
+sigstatusbar(const Arg *arg)
+{
+	union sigval sv;
+
+	if (!statussig)
+		return;
+	sv.sival_int = arg->i;
+	if ((statuspid = getstatusbarpid()) <= 0)
+		return;
+
+	sigqueue(statuspid, SIGRTMIN+statussig, sv);
 }
 
 void
@@ -2591,13 +2667,38 @@ updatesizehints(Client *c)
 	c->hintsvalid = 1;
 }
 
+/* void */
+/* updatestatus(void) */
+/* { */
+/* 	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext))) */
+/* 		strcpy(stext, "dwm-"VERSION); */
+/* 	else */
+/* 		copyvalidchars(stext, rawstext); */
+/* 	drawbar(selmon); */
+/* } */
+
 void
 updatestatus(void)
 {
-	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext)))
+	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext))) {
 		strcpy(stext, "dwm-"VERSION);
-	else
-		copyvalidchars(stext, rawstext);
+		statusw = TEXTW(stext) - lrpad + 2;
+	} else {
+		char *text, *s, ch;
+
+		statusw  = 0;
+		for (text = s = stext; *s; s++) {
+			if ((unsigned char)(*s) < ' ') {
+				ch = *s;
+				*s = '\0';
+				statusw += TEXTW(text) - lrpad;
+				*s = ch;
+				text = s + 1;
+			}
+		}
+		statusw += TEXTW(text) - lrpad + 2;
+
+	}
 	drawbar(selmon);
 }
 

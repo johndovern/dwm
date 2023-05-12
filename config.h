@@ -128,6 +128,8 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#define STATUSBAR "dwmblocks"
+
 /* commands */
 static const char *termcmd[]  = { TERMINAL, "-n", "tmux", NULL };
 
@@ -270,12 +272,18 @@ static const Button buttons[] = {
     { ClkWinTitle,          0,              Button4,        spawn,          SHCMD("xdotool key 'super+k'") },
     { ClkWinTitle,          0,              Button5,        spawn,          SHCMD("xdotool key 'super+j'") },
     { ClkWinTitle,          0,              8,              togglesticky,   {0} },
-    { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-    { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-    { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-    { ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
-    { ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
-    { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+    /* { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, */
+    /* { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} }, */
+    /* { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, */
+    /* { ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} }, */
+    /* { ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, */
+    /* { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, */
+    { ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+    { ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+    { ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
+    { ClkStatusText,        0,              Button4,        sigstatusbar,   {.i = 4} },
+    { ClkStatusText,        0,              Button5,        sigstatusbar,   {.i = 5} },
+    { ClkStatusText,        ShiftMask,      Button1,        sigstatusbar,   {.i = 6} },
 #endif
     { ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD(TERMINAL " -e nvim ~/.local/src/dwmblocks/config.h") },
     { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
