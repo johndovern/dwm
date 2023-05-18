@@ -1841,7 +1841,7 @@ run(void)
 void
 runAutostart(void) {
 	system("setsid -f restart-redshift");
-	system("killall -q emacs; emacs --daemon &");
+	/* system("killall -q emacs; emacs --daemon &"); */
     system("killall -q xdg-desktop-portal-kde; /usr/lib/xdg-desktop-portal-kde &");
 	system("killall -q dwmblocks; dwmblocks &");
 	system("killall -q wkx; wkx --daemon &");
@@ -2166,17 +2166,19 @@ void
 sigdwmblocks(const Arg *arg)
 {
 	union sigval sv;
-	sv.sival_int = 0 | (dwmblockssig << 8) | arg->i;
+	/* sv.sival_int = 0 | (dwmblockssig << 8) | arg->i; */
+	sv.sival_int = arg->i;
 	if (!dwmblockspid)
 		if (getdwmblockspid() == -1)
 			return;
 
-	if (sigqueue(dwmblockspid, SIGUSR1, sv) == -1) {
-		if (errno == ESRCH) {
-			if (!getdwmblockspid())
-				sigqueue(dwmblockspid, SIGUSR1, sv);
-		}
-	}
+	sigqueue(dwmblockspid, SIGRTMIN+dwmblockssig, sv);
+	/* if (sigqueue(dwmblockspid, SIGUSR1, sv) == -1) { */
+	/* 	if (errno == ESRCH) { */
+	/* 		if (!getdwmblockspid()) */
+	/* 			sigqueue(dwmblockspid, SIGUSR1, sv); */
+	/* 	} */
+	/* } */
 }
 #endif
 

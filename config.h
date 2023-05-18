@@ -187,6 +187,7 @@ static const Key keys[] = {
     { MODKEY, XK_u,                 setlayout,      {.v = &layouts[6]} }, /* deck */
     { MODKEY|ShiftMask, XK_u,       setlayout,      {.v = &layouts[7]} }, /* centeredmaster */
     { MODKEY|ShiftMask, XK_i,       setlayout,      {.v = &layouts[8]} }, /* centeredfloatingmaster */
+    { MODKEY|ShiftMask, XK_r,       spawn,          SHCMD("killall wkx ; wkx --daemon")},
     /* { MODKEY, XK_o,                 incnmaster,     {.i = +1 } }, */
     /* { MODKEY|ShiftMask, XK_o,       incnmaster,     {.i = -1 } }, */
     { MODKEY, XK_backslash,         view,           {0} },
