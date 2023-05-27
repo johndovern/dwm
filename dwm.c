@@ -1312,8 +1312,8 @@ keypress(XEvent *e)
 	keysym = XKeycodeToKeysym(dpy, (KeyCode)ev->keycode, 0);
 	for (i = 0; i < LENGTH(keys); i++)
 		if (keysym == keys[i].keysym
-		&& CLEANMASK(keys[i].mod) == CLEANMASK(ev->state)
-		&& keys[i].func)
+			&& CLEANMASK(keys[i].mod) == CLEANMASK(ev->state)
+			&& keys[i].func)
 			keys[i].func(&(keys[i].arg));
 }
 
