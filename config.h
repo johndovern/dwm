@@ -73,14 +73,14 @@ static const Rule rules[] = {
     { TERMCLASS,           TERMINAL,    "pulsemixer",     0,            1,          1,          0,        -1,       0 },
     { "Emacs",             "emacs",     NULL,             1 << 0,       0,          0,          0,        -1,       0 },
     { LIBRE_C,             LIBRE_I,     NULL,             1 << 1,       0,          0,          0,        -1,       0 },
-    { STEAM,               STEAM,       STEAM,            1 << 1,       0,          0,          0,        -1,       0 },
-    { STEAM,               STEAM,       "Friends List",   1 << 1,       1,          0,          0,        -1,       0 },
     { "firefox",           "Navigator", FIREFOX,          1 << 2,       0,          0,          0,        -1,       0 },
     { TERMCLASS,           "anime_lf",  NULL,             1 << 2,       0,          1,          0,        -1,       0 },
     { TERMCLASS,           "aniwiki",   NULL,             1 << 2,       0,          1,          0,        -1,       0 },
     { BRAVE_U,             BRAVE_L,     NULL,             1 << 3,       0,          0,          0,        -1,       0 },
     { "Lutris",            NULL,        NULL,             1 << 3,       0,          0,          0,        -1,       0 },
     { "fate.exe",          NULL,        NULL,             1 << 4,       1,          0,          0,        -1,       0 },
+    { STEAM,               STEAM,       STEAM,            1 << 4,       0,          0,          0,        -1,       0 },
+    { STEAM,               STEAM,       "Friends List",   1 << 4,       1,          0,          0,        -1,       0 },
     { "Transmission-gtk",  NULL,        NULL,             1 << 5,       0,          0,          0,        -1,       0 },
     { "transmission",      NULL,        NULL,             1 << 5,       0,          0,          0,        -1,       0 },
     { "kdenlive",          NULL,        NULL,             1 << 6,       0,          0,          0,        -1,       0 },
@@ -196,6 +196,7 @@ static const Key keys[] = {
     { MODKEY, XK_a,                 togglegaps,     {0} },
     { MODKEY|ShiftMask, XK_a,       defaultgaps,    {0} },
     /* { MODKEY, XK_s,                 togglesticky,   {0} }, */
+    { MODKEY|ShiftMask, XK_s,       spawn,          SHCMD("killall dunst ; dunst")},
     /*          F is automatically bound above in STACKKEYS         */
     { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[9]} },
     /* { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[8]} }, */
@@ -295,7 +296,7 @@ static const Button buttons[] = {
     { ClkRootWin,           0,              Button3,        resizemouse,    {0} },
     { ClkRootWin,           0,              Button4,        shiftview,      {.i = -1} },
     { ClkRootWin,           0,              Button5,        shiftview,      {.i = +1} },
-    { ClkRootWin,           0,              8,              cyclelayout,    {.i = +1} },
+    { ClkRootWin,           0,              8,              view,           {0} },
     { ClkLtSymbol,          0,              Button1,        setlayout,      {.v = &layouts[0]} }, /* spiral */
     { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[1]} }, /* monocle */
 };
@@ -367,10 +368,12 @@ static Signal signals[] = {
     { "toggletag",      tag },
     { "toggletagex",    toggletagex },
     { "killclient",     killclient },
+    { "cyclelayout",    cyclelayout },
     { "quit",           quit },
     { "setlayout",      setlayout },
     { "setlayoutex",    setlayoutex },
     { "shiftview",      shiftview },
+    { "shifttag",       shifttag },
     { "focusnmon",      focusnthmon },
     { "tagnmon",        tagnthmon },
     { "togglesticky",   togglesticky },
