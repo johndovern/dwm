@@ -217,6 +217,7 @@ static const Key keys[] = {
     { MODKEY, XK_x,                 incrgaps,       {.i = -3 } },
     { MODKEY, XK_v,                 togglefullscr,  {0} },
     { MODKEY, XK_b,                 togglebar,      {0} },
+    { MODKEY|ShiftMask, XK_b,       spawn,          SHCMD("killall -q dwmblocks; dwmblocks &")},
 
     { MODKEY, XK_Left,              focusmon,       {.i = -1 } },
     { MODKEY|ShiftMask, XK_Left,    tagmon,         {.i = -1 } },
@@ -232,9 +233,9 @@ static const Key keys[] = {
 
 
     /*                              XF86 KEYS                       */
-    { 0, XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-    { 0, XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -44 $(pidof dwmblocks)") },
-    { 0, XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -44 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioMute,          spawn,          SHCMD("pamixer -t; kill -40 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioRaiseVolume,   spawn,          SHCMD("pamixer --allow-boost -i 5; kill -40 $(pidof dwmblocks)") },
+    { 0, XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -40 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioPrev,          spawn,          SHCMD("mpc prev") },
     { 0, XF86XK_AudioNext,          spawn,          SHCMD("mpc next") },
     { 0, XF86XK_AudioPause,         spawn,          SHCMD("mpc toggle") },
