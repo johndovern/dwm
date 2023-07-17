@@ -295,8 +295,8 @@ static const Button buttons[] = {
     { ClkRootWin,           0,              Button1,        movemouse,      {0} },
     { ClkRootWin,           0,              Button2,        togglefloating, {0} },
     { ClkRootWin,           0,              Button3,        resizemouse,    {0} },
-    { ClkRootWin,           0,              Button4,        shiftview,      {.i = -1} },
-    { ClkRootWin,           0,              Button5,        shiftview,      {.i = +1} },
+    /* { ClkRootWin,           0,              Button4,        shiftview,      {.i = -1} }, */
+    /* { ClkRootWin,           0,              Button5,        shiftview,      {.i = +1} }, */
     { ClkRootWin,           0,              8,              view,           {0} },
     { ClkLtSymbol,          0,              Button1,        setlayout,      {.v = &layouts[0]} }, /* spiral */
     { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[1]} }, /* monocle */
