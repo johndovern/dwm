@@ -9,6 +9,7 @@
 #define BRAVE_L         "brave-browser"
 #define LIBRE_I         "Navigator"
 #define LIBRE_C         "LibreWolf"
+#define EMACS_START     "startpage.org – Doom Emacs"
 
 #define SESSION_FILE    "/tmp/dwm-session"
 
@@ -25,9 +26,9 @@ static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
     "monospace:size=12",
-    "IPAGothic:pixelsize=18:antialias=true:autohint=true",
-    "Source Han Sans JP:pixelsize=18:antialias=true:autohint=true",
-    "M+ 1c:pixelsize=18:antialias=true:autohint=true",
+    "IPAGothic:pixelsize=24:antialias=true:autohint=true",
+    "Source Han Sans JP:pixelsize=24:antialias=true:autohint=true",
+    "M+ 1c:pixelsize=24:antialias=true:autohint=true",
     "JoyPixels:pixelsize=14:antialias=true:autohint=true"
  };
 static char normbgcolor[]           = "#212121";
@@ -68,11 +69,12 @@ static const Rule rules[] = {
     { NULL,                NULL,        "Event Tester",   0,            0,          0,          1,        -1,       0 },
     { "mpv",               "fmpv",      NULL,             0,            1,          0,          0,        -1,       0 },
     { "mpv",               "umpv",      NULL,             0,            0,          0,          0,        -1,       1 },
+    /* { "Emacs",             "emacs",     EMACS_START,      0,            0,          0,          0,        -1,       0 }, */
     { TERMCLASS,           "spterm",    NULL,             SPTAG(0),     1,          1,          0,        -1,       0 },
     { TERMCLASS,           "spcalc",    NULL,             SPTAG(1),     1,          1,          0,        -1,       0 },
     { TERMCLASS,           TERMINAL,    "pulsemixer",     0,            1,          1,          0,        -1,       0 },
-    { "Emacs",             "emacs",     NULL,             1 << 0,       0,          0,          0,        -1,       0 },
-    { LIBRE_C,             LIBRE_I,     NULL,             1 << 1,       0,          0,          0,        -1,       0 },
+    { LIBRE_C,             LIBRE_I,     NULL,             1 << 0,       0,          0,          0,        -1,       0 },
+    /* { "Emacs",             "emacs",     NULL,             1 << 1,       0,          0,          0,        -1,       0 }, */
     { "firefox",           "Navigator", FIREFOX,          1 << 2,       0,          0,          0,        -1,       0 },
     { TERMCLASS,           "anime_lf",  NULL,             1 << 2,       0,          1,          0,        -1,       0 },
     { TERMCLASS,           "aniwiki",   NULL,             1 << 2,       0,          1,          0,        -1,       0 },
@@ -238,7 +240,7 @@ static const Key keys[] = {
     { 0, XF86XK_AudioLowerVolume,   spawn,          SHCMD("pamixer --allow-boost -d 5; kill -40 $(pidof dwmblocks)") },
     { 0, XF86XK_AudioPrev,          spawn,          SHCMD("mpc prev") },
     { 0, XF86XK_AudioNext,          spawn,          SHCMD("mpc next") },
-    { 0, XF86XK_AudioPause,         spawn,          SHCMD("mpc toggle") },
+    /* { 0, XF86XK_AudioPause,         spawn,          SHCMD("mpc toggle") }, */
     /* { 0, XF86XK_AudioPlay,          spawn,          SHCMD("mpc toggle") }, */
     { 0, XF86XK_AudioStop,          spawn,          SHCMD("mpc stop") },
     { 0, XF86XK_AudioRewind,        spawn,          SHCMD("mpc seek -10") },
