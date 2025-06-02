@@ -1842,9 +1842,9 @@ void
 runAutostart(void) {
 	system("setsid -f restart-redshift");
 	/* system("killall -q emacs; emacs --daemon &"); */
-    system("killall -q xdg-desktop-portal-kde; /usr/lib/xdg-desktop-portal-kde &");
-	system("killall -q dwmblocks; dwmblocks &");
+	system("killall -q xdg-desktop-portal-kde; /usr/lib/xdg-desktop-portal-kde &");
 	system("killall -q wkx; wkx --daemon &");
+	/* system("killall -q dwmblocks; dwmblocks &"); */
 }
 
 void

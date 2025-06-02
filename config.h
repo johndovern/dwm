@@ -25,11 +25,11 @@ static int smartgaps          = 0;        /* 1 means no outer gap when there is 
 static int showbar            = 1;        /* 0 means no bar */
 static int topbar             = 1;        /* 0 means bottom bar */
 static char *fonts[]          = {
-    "monospace:size=12",
-    "IPAGothic:pixelsize=24:antialias=true:autohint=true",
-    "Source Han Sans JP:pixelsize=24:antialias=true:autohint=true",
-    "M+ 1c:pixelsize=24:antialias=true:autohint=true",
-    "JoyPixels:pixelsize=14:antialias=true:autohint=true"
+    "monospace:size=13",
+    "IPAGothic:pixelsize=22:antialias=true:autohint=true",
+    "Source Han Sans JP:pixelsize=22:antialias=true:autohint=true",
+    "M+ 1c:pixelsize=22:antialias=true:autohint=true",
+    "JoyPixels:pixelsize=12:antialias=true:autohint=true"
  };
 static char normbgcolor[]           = "#212121";
 static char normbordercolor[]       = "#212121";
@@ -197,7 +197,7 @@ static const Key keys[] = {
     /*                              ROW 3                           */
     { MODKEY, XK_a,                 togglegaps,     {0} },
     { MODKEY|ShiftMask, XK_a,       defaultgaps,    {0} },
-    /* { MODKEY, XK_s,                 togglesticky,   {0} }, */
+    { MODKEY, XK_s,                 spawn,          SHCMD("wk --press 'os'")},
     { MODKEY|ShiftMask, XK_s,       spawn,          SHCMD("killall dunst ; dunst")},
     /*          F is automatically bound above in STACKKEYS         */
     { MODKEY|ShiftMask, XK_f,       setlayout,      {.v = &layouts[9]} },
